@@ -1,3 +1,3 @@
 # NEW RCCF SITE
-
-Will house all of the new connections and databases found at robotics.ucf.edu
+## Robotics-Club-Website
+A repository for the various components of the Robotics Club of Central Florida website: https://robotics.ucf.edu/
