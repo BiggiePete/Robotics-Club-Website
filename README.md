@@ -24,6 +24,7 @@ A repository for the various components of the Robotics Club of Central Florida 
     history
         - history of our club
         - roadmap of where we are to go
-    experience 
+    experience
+        - dont worry about it
 ### Experience :
     threejs animations
