@@ -1,11 +1,9 @@
-
-
 {
     "compilerOptions": {
         "moduleResolution": "node",
         "strict": true
     },
-    "include": ["./**/*.ts", "scripts/main.js"],
+    "include": ["./**/*.ts", "scripts/index_load.js", "scripts/Start-Alpine.js"],
     "exclude": [
         ".webpack/**/*",
         ".vscode/**/*"

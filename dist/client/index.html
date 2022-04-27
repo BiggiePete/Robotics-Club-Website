@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RCCF</title>
 </head>
-<script src="main-bundle.js"></script>
-<body id="monkey">
-    hello world
+    <!--the line below should be placed in every file that uses alpine notations-->
+    <script defer src="Start_Alpine-bundle.js"></script>
+<body>
+    <!--Example of Alpine Notation-->
+    <div x-data="{ title: 'Start Here'}">
+        <h1 x-text="title"></h1>
+    </div>
 </body>
 
 </html>

@@ -36,7 +36,10 @@ To work on this project, note the following :
     - To begin working on this project, run npm install inside of this proj, to install all of the deps locally
 
     - all webpages must be placed in /dev/client/
-    - all typescript must be placed in /src/client/
+    - all typescript must be placed in /src/client/scripts
 To install packages, run "npm install"
 To run the Dev server, run "npm run dev"
 To run the prod server, run "npm run prod"
+
+    - This website comes pre-installed with threejs and pixijs, for 3D and 2D designs
+    

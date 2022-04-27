@@ -1,12 +1,11 @@
 const path = require('path')
-var fs = require('fs'),
-    entries = fs.readdirSync('./src/client/scripts/').filter(function(file) {
-        return file.match(/.*\.ts$/);
 
-    });
 
 module.exports = {
-    entry: './src/client/scripts/main.js',
+    entry: {
+        //make sure to name every file and where it is, like below
+        Start_Alpine: './src/client/scripts/Start_Alpine.js',
+    },
     module: {
         rules: [{
             test: /\.tsx?$/,
