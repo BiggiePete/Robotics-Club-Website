@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'eval-source-map',
+    devtool: 'eval',
     devServer: {
         static: {
             directory: path.join(__dirname, '../../dist/client'),

@@ -28,3 +28,11 @@ A repository for the various components of the Robotics Club of Central Florida 
         - dont worry about it
 ### Experience :
     threejs animations
+
+
+# Development Notes
+To work on this project, note the following : 
+    - all webpages must be placed in /dev/client/
+    - all typescript must be placed in /src/client/
+To install packages, run "npm install"
+To run the Dev server, run npm run dev
