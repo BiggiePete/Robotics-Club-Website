@@ -1,8 +1,14 @@
 
+
 {
     "compilerOptions": {
         "moduleResolution": "node",
         "strict": true
     },
-    "include": ["**/*.ts"]
+    "include": ["./**/*.ts", "scripts/main.js"],
+    "exclude": [
+        ".webpack/**/*",
+        ".vscode/**/*"
+       ],
+       "files": ["placeholder.ts"]
 }

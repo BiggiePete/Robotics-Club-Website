@@ -1,10 +1,12 @@
 const path = require('path')
+var fs = require('fs'),
+    entries = fs.readdirSync('./src/client/scripts/').filter(function(file) {
+        return file.match(/.*\.ts$/);
+
+    });
 
 module.exports = {
-    entry: {
-        client: './src/client/client.ts', // threejs
-        back_animation: './src/client/back_animation.js' // pixijs
-    },
+    entry: './src/client/scripts/main.js',
     module: {
         rules: [{
             test: /\.tsx?$/,
