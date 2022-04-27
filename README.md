@@ -4,8 +4,13 @@ A repository for the various components of the Robotics Club of Central Florida 
 
 
 # Setup
-
+    - install nodejs
+    - run npm install in the same dir as the package.json file
 # TODO
+    - Build inits of all pages
+
+
+
 
 ## Webpages : 
     about-us (index)
