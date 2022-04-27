@@ -1,0 +1,19 @@
+{
+  "name": "robotics-club-website",
+  "version": "1.0.0",
+  "description": "A repository for the various components of the Robotics Club of Central Florida website: https://robotics.ucf.edu/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BiggiePete/Robotics-Club-Website.git"
+  },
+  "author": "Peter Cross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BiggiePete/Robotics-Club-Website/issues"
+  },
+  "homepage": "https://github.com/BiggiePete/Robotics-Club-Website#readme"
+}
