@@ -12,6 +12,7 @@ canvas {
     position: absolute;
     top: 60px;
     left: 0;
+    min-height: 100vh;
 }
 
 /* splitting in half */
@@ -93,7 +94,6 @@ a:active {
 .hero h1 {
     font-size: 8em;
     color: #ffffac;
-    margin: 0 -90px;
     z-index: 2;
     cursor: default;
     text-align: center;
@@ -125,6 +125,7 @@ a:active {
     display: inline-block;
     margin: 0 8px;
     padding: 5px;
+    font-size: 1.5em;
     color: #bbbb58;
 }
 
@@ -153,9 +154,13 @@ a:active {
     font-family: 'Montserrat', sans-serif;
 }
 
-.section p {
+.section p a{
     line-height: 1.625em;
     margin: 0 auto;
+    font-size: 1.2em;
+}
+.section p a:hover {
+    color: #bbbb58;
 }
 
 footer {
