@@ -3,7 +3,7 @@ const MainColor = 0xFFD700;
 const BallColor = 0xF2F2F2;
 const num_balls = 200;
 
-//Ball anaimation (PIXIJS)
+// Ball anaimation (PIXIJS)
 // Made by Peter Cross
 // peter.cross222@gmail.com
 
@@ -85,7 +85,6 @@ resize_handler();
 
 function resize_handler() {
     app.renderer.resize(document.getElementsByClassName("hero")[0].getBoundingClientRect().width, document.getElementsByClassName("hero")[0].getBoundingClientRect().height);
-    console.log(app.renderer)
     width = app.renderer.width;
     height = app.renderer.height;
     max_y = height - r;
