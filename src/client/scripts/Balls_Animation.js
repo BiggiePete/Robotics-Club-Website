@@ -2,6 +2,13 @@ const PIXI = require('pixi.js')
 const MainColor = 0xFFD700;
 const BallColor = 0xF2F2F2;
 const num_balls = 200;
+
+//Ball anaimation (PIXIJS)
+// Made by Peter Cross
+// peter.cross222@gmail.com
+
+
+
 let app = new PIXI.Application({
     width: 768,
     height: 768,
