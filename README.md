@@ -46,5 +46,6 @@ To install packages, run "npm install"
 To run the Dev server, run "npm run dev"
 To run the prod server, run "npm run prod"
 
-    - This website comes pre-installed with threejs and pixijs, for 3D and 2D designs
+    - This workflow comes pre-installed with threejs and pixijs, for 3D and 2D designs
     
+    Stack Plan : Basement Hipster : Linux, Webpack-Server, Luck, Kombucha

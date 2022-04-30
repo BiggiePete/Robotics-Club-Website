@@ -5,6 +5,8 @@ module.exports = {
     entry: {
         //make sure to name every file and where it is, like below
         Start_Alpine: './src/client/scripts/Start_Alpine.js',
+        Balls_Animation: './src/client/scripts/Balls_Animation.js',
+        Html_Include: './src/client/scripts/Html_Include.js'
     },
     module: {
         rules: [{
