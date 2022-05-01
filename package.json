@@ -1,6 +1,6 @@
 {
   "name": "robotics-club-website",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A repository for the various components of the Robotics Club of Central Florida website: https://robotics.ucf.edu/",
   "main": "index.js",
   "scripts": {
