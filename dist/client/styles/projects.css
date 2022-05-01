@@ -69,7 +69,7 @@ a:active {
 }
 
 .nav {
-    background: rgb(31, 31, 31);
+    background: #1f1f1f;
 }
 
 .nav__title {
@@ -134,7 +134,7 @@ a:active {
     max-width: 900px;
     margin: 60px auto;
     padding: 90px 30px;
-    background-color: rgb(117, 117, 117);
+    background-color: #757575;
     text-align: center;
     box-sizing: border-box;
     display: flex;
