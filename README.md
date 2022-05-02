@@ -1,19 +1,21 @@
 # NEW RCCF SITE
+
 ## Robotics-Club-Website
+
 A repository for the various components of the Robotics Club of Central Florida website: https://robotics.ucf.edu/
 
+## Setup
 
-# Setup
     - install nodejs
     - run npm install in the same dir as the package.json file
-# TODO
+
+## TODO
+
     - Build inits of all pages
 
+## Webpages
 
-
-
-## Webpages : 
-    about-us (index)
+    about-us (index) [HOME]
         - mission
         - officers
             - individualized officer pages
@@ -22,20 +24,22 @@ A repository for the various components of the Robotics Club of Central Florida 
         - our current sponsors
     projects
         - list of projects
-    pictures
+    pictures (will be contained in the media drop down from the nav)
         - pictures we want to share (full-res)
-    how-to
+    how-to (will be contained in the media drop down from the nav)
         - workshops // how - to guides
-    history
+    history (will be contained in the about us drop down from the nav)
         - history of our club
         - roadmap of where we are to go
-    experience
+    experience (will be contained in the about us drop down from the nav)
         - dont worry about it
-### Experience :
+
+### Experience
+
     threejs animations
 
+## Development Notes
 
-# Development Notes
 To work on this project, note the following : 
     - This project uses nodejs, more specifically, the abilities found in npm! make sure that is installed before continuing
     - To begin working on this project, run npm install inside of this proj, to install all of the deps locally

@@ -12,6 +12,7 @@
     <title>RCCF Officers</title>
 </head>
 <script defer src="Balls_Animation-bundle.js"></script>
+<script defer src="Html_Include-bundle.js"></script>
 
 <div class="site" style="position:absolute; left:0; top:0; width: 100%;" 
 x-data="{ Officers: [
@@ -23,23 +24,14 @@ x-data="{ Officers: [
     { id: 6, name: 'Peter Cross', position: 'Lab-Manager' },
     { id: 7, name: 'Noah', position: 'Outreach' },
 ]}">
-    <nav class="nav">
-        <div class="nav__title">Officers @ RCCF</div>
-        <ul class="nav__list">
-            <li class="nav__item"><a href="./sponsors.html">SPONSORS</a></li>
-            <li class="nav__item"><a href="./calendar.html">CALENDAR</a></li>
-            <li class="nav__item"><a href="./projects.html">PROJECTS</a></li>
-            <li class="nav__item"><a href="./officers.html">OFFICERS</a></li>
-            <li class="nav__item"><a href="./index.html">HOME</a></li>
-        </ul>
-    </nav>
+    <include src="./templates/nav.html"></include>
     <div class="hero">
         <h1>Officers @ RCCF</h1>
     </div>
 
     <body>
         <div class="container" style="padding-top:30px;">
-            <div class="row" style="width: 100%; align-items: center;">
+            <div class="row" style="width: 100%;">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="our-team">
                         <div class="picture">
@@ -50,6 +42,29 @@ x-data="{ Officers: [
                             <h4 class="title">Web Developer</h4>
                         </div>
                         <ul class="social">
+                            <!-- any links an officer wants to have connected to their web profile-->
+                            <li><a href="https://codepen.io/collection/XdWJOQ/" class="fab fa-discord"
+                                    aria-hidden="true"></a></li>
+                            <li><a href="https://codepen.io/collection/XdWJOQ/" class="fab fa-twitter"
+                                    aria-hidden="true"></a></li>
+                            <li><a href="https://codepen.io/collection/XdWJOQ/" class="fab fa-google-plus"
+                                    aria-hidden="true"></a></li>
+                            <li><a href="https://codepen.io/collection/XdWJOQ/" class="fab fa-linkedin"
+                                    aria-hidden="true"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="our-team">
+                        <div class="picture">
+                            <img class="img-fluid" src="https://avatars.githubusercontent.com/u/59030169?s=280&v=4">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="name">Michele Miller</h3>
+                            <h4 class="title">Web Developer</h4>
+                        </div>
+                        <ul class="social">
+                            <!-- any links an officer wants to have connected to their web profile-->
                             <li><a href="https://codepen.io/collection/XdWJOQ/" class="fab fa-discord"
                                     aria-hidden="true"></a></li>
                             <li><a href="https://codepen.io/collection/XdWJOQ/" class="fab fa-twitter"
