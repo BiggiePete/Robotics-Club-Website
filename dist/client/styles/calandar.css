@@ -1,19 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 
-::-webkit-scrollbar {
-    width: 5px;
-    background-color: #1f1f1f;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #ffffac;
-    border-radius: 7px;
-}
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5em;
+    background-color: #111;
 }
+
+canvas {
+    z-index: 1;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    min-height: 100vh;
+}
+
+/* splitting in half */
+/* Create two equal columns that sits next to each other */
+.column {
+    position: relative;
+    flex: 50%;
+    left: -100px;
+    padding: 10px;
+}
+
 /* unvisited link */
 a:link {
     color: inherit;
@@ -37,6 +47,7 @@ a:active {
     color: inherit;
     text-decoration: underline;
 }
+
 .nav {
     z-index: 3;
     position: sticky;
@@ -89,7 +100,7 @@ a:active {
 }
 
 .subnav {
-    background: rgb(31, 31, 31);
+    background: #1f1f1f;
     z-index: 2;
     border-bottom: 1px solid #222;
 }
@@ -116,4 +127,42 @@ a:active {
     padding: 5px;
     font-size: 1.5em;
     color: #bbbb58;
+}
+
+.section {
+    scroll-margin-top: 100px;
+    max-width: 1500px;
+    margin: 60px auto;
+    padding: 30px 30px;
+    background-color: #1f1f1f;
+    text-align: center;
+    box-sizing: border-box;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section h1 {
+    font-size: 5em;
+    position: relative;
+    top: -150px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section p a{
+    line-height: 1.625em;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+.section p a:hover {
+    color: #bbbb58;
+}
+
+footer {
+    text-align: center;
 }
