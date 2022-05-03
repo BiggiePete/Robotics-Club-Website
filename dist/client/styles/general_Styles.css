@@ -11,9 +11,11 @@
     background: #ffffac;
     border-radius: 7px;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 /* unvisited link */
 a:link {
     color: inherit;
@@ -37,6 +39,7 @@ a:active {
     color: inherit;
     text-decoration: underline;
 }
+
 .nav {
     z-index: 3;
     position: sticky;
@@ -65,13 +68,15 @@ a:active {
     margin: 0px 30px;
 }
 
-.nav__list2{
+.nav__list2 {
     background-color: #1f1f1f;
     position: absolute;
+    margin-left: -30px;
     padding: 10px;
 }
-.pointer:hover{
-    cursor:pointer;
+
+.pointer:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -80,9 +85,11 @@ a:active {
     display: inline-block;
     margin: 0px 30px;
 }
+
 .nav__item2 {
     display: block;
 }
+
 .hero {
     display: grid;
     justify-content: center;
@@ -130,4 +137,3 @@ a:active {
     font-size: 1.5em;
     color: #bbbb58;
 }
-
