@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/calendar.css" type="text/css">
     <link rel="stylesheet" href="./styles/general_Styles.css" type="text/css">
-    <link rel="shortcut icon" href="Media/Images/Calendar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./Media/Images/Calandar.png" type="image/x-icon">
     <title>RCCF Calendar</title>
 </head>
 <script defer src="Start_Alpine-bundle.js"></script>
@@ -17,7 +17,7 @@
 <div class="site" style="position:absolute; left:0; top:0; width: 100%;">
 
     <include src="./templates/nav.html"></include>
-     <div class="hero">
+    <div class="hero">
         <h1>Calendar @ RCCF</h1>
     </div>
 
@@ -25,5 +25,14 @@
         <script type="text/javascript" src="https://stylemygcal.com/widget.js"></script>
         <div class="smgc-calendar-placeholder" id="smgc-cal-jiwIm0dsvz0OL1NdqwA2"></div>
     </div>
+</div>
 
 </html>
+
+
+<script>
+    setTimeout(function (){
+        console.log(document.getElementsByClassName("smgc-watermark")[0].remove())
+    },2000)
+
+</script>
