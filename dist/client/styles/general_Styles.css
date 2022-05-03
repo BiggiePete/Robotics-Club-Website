@@ -70,6 +70,10 @@ a:active {
     position: absolute;
     padding: 10px;
 }
+.pointer:hover{
+    cursor:pointer;
+    text-decoration: underline;
+}
 
 
 .nav__item {
