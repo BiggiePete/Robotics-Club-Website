@@ -21,6 +21,7 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.10.2",
     "@alpinejs/persist": "^3.10.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@types/pixi.js": "^5.0.0",
     "@types/three": "^0.139.0",
     "pixi.js": "^6.3.0",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@types/alpinejs": "^3.7.0",
+    "@types/google.maps": "^3.48.7",
     "alpinejs": "^3.10.2"
   }
 }
