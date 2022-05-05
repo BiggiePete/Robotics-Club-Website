@@ -3,10 +3,6 @@ import { decideAA } from './experience_helperfuncs';
 import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls'
 
 
-
-
-
-
 /*
 Experience First person environment
 Created By: Peter Cross
@@ -14,20 +10,23 @@ Email : peter.cross222@gmail.com
 */
 
 //vars to play with : 
-const rotSpeed = 5;
+
 
 
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const clock = new THREE.Clock();
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+    antialias: decideAA(),
+    powerPreference: "high-performance"
+});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshBasicMaterial({
-    color: 0xa7ffa7,
+    color: 0xa7cca7,
     wireframe: true,
 });
 const cube = new THREE.Mesh(geometry, material);
@@ -39,7 +38,7 @@ const controls = new PointerLockControls(camera, document.body);
 
 camera.position.z = 5;
 
-function animate() {
+function animate(): void {
     requestAnimationFrame(animate);
     const delta = clock.getDelta();
 

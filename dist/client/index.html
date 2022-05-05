@@ -9,11 +9,30 @@
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/general_Styles.css">
     <link rel="shortcut icon" href="./Media/Images/roboskull-white.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/canvas.css">
     <title>RCCF</title>
 </head>
 <!-- import alpine and start it for this page [make sure its exactly like below!]-->
 <script defer src="Start_Alpine-bundle.js"></script>
 <script defer src="Html_Include-bundle.js"></script>
+<script defer src="Balls_Animation-bundle.js"></script> <!-- maybe make a new animation, something more "robotic"-->
 
 <include src="./templates/nav.html"></include>
+
+
+<div style="position:absolute; left:0; top:0; width: 100%;">
+    <div class="hero">
+        <h1>Welcome to The<br>Robotics Club of Central Florida</h1>
+    </div>
+    <div class="subnav">
+        <div class="subnav__container">
+            <div class="subnav__title">
+                <h1>Sections</h1>
+            </div>
+            <ul class="subnav__list">
+            </ul>
+        </div>
+    </div>
+</div>
+
 </html>

@@ -1,4 +1,10 @@
-const PIXI = require('pixi.js')
+const PIXI = require('pixi.js');
+const {
+    rad,
+    map,
+    lerp,
+    deg
+} = require("./math_funcs");
 const MainColor = 0xFFD700;
 const BallColor = 0xF2F2F2;
 const num_balls = 200;
@@ -296,42 +302,4 @@ function Glow(x, y, color, resolution, radius, enable) {
         }
         app.stage.addChild(glowgrafx);
     }
-}
-/**
- * 
- * @param {Number} rad 
- * @returns Value converted to Degrees
- */
-function deg(rad) {
-    return (rad * 180) / Math.PI;
-}
-/**
- * 
- * @param {Number} deg 
- * @returns Value converted to Radians
- */
-function rad(deg) {
-    return (deg * Math.PI) / 180
-}
-/**
- * 
- * @param {Number} v0 - Starting Value
- * @param {Number} v1 - Value to Approach
- * @param {Number} t - Time Constant, changes interpolation
- * @returns Amount of Change to interpolate
- */
-function lerp(v0, v1, t) {
-    return v0 * (1 - t) + v1 * t
-}
-/**
- * 
- * @param {Number} x Value
- * @param {Number} in_min Minimum x Value
- * @param {Number} in_max Maximum x Value
- * @param {Number} out_min Minimum desired output
- * @param {Number} out_max Maximum desired output
- * @returns Value between out_min and out_max interpolated for the range linearly
- */
-function map(x, in_min, in_max, out_min, out_max) {
-    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

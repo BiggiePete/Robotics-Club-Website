@@ -40,13 +40,14 @@ A repository for the various components of the Robotics Club of Central Florida 
 
 ## Development Notes
 
-To work on this project, note the following : 
+To work on this project, note the following :
     - This project uses nodejs, more specifically, the abilities found in npm! make sure that is installed before continuing
     - To begin working on this project, run npm install inside of this proj, to install all of the deps locally
+    - When working on this project, make sure to (when booting up your editor) to run npm i in the base dir, this keeps you up to date with any recent package additions
 
     - all webpages must be placed in /dev/client/
-    - all typescript must be placed in /src/client/scripts
-To install packages, run "npm install"
+    - all typescript / javascript must be placed in /src/client/scripts
+To install packages, run "npm install [package-name]"
 To run the Dev server, run "npm run dev"
 To run the prod server, run "npm run prod"
 
