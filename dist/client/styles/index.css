@@ -29,3 +29,10 @@
     margin-top: -30px;
     font-family: var(--Montserrat);
 }
+
+.text-section span{
+    color: var(--White);
+    font-size: 1.2em;
+    margin: 10px;
+    font-family: var(--Montserrat);
+}
