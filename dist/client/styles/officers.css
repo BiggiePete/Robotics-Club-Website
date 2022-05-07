@@ -1,10 +1,11 @@
+@import './general_Styles.css';
 body {
     height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    background-color: #111;
+    background-color: var(--Darkest-Black);
 }
 
 canvas {
@@ -23,13 +24,13 @@ canvas {
 
 .name {
     font-size: 2em;
-    font-family: 'Bebas Neue', cursive;
+    font-family: var(--Bebas-Neue);
     color: #f2f2f2;
 }
 
 .title {
     font-size: 1.5em;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--Montserrat);
     color: #b1b1b1;
 }
 
@@ -38,7 +39,7 @@ canvas {
     padding: 30px;
     margin-right: 30px;
     margin-bottom: 120px;
-    background-color: #4b4b4b;
+    background-color: var(--Darker-Blue);
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -61,7 +62,7 @@ canvas {
     width: 100%;
     height: 0;
     border-radius: 50%;
-    background-color: #bbbb54;
+    background-color: var(--Dark-Gold);
     position: absolute;
     bottom: 135%;
     right: 0;
@@ -80,7 +81,7 @@ canvas {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #bbbb54;
+    background-color: var(--Dark-Gold);
     position: absolute;
     top: 0;
     left: 0;
@@ -96,7 +97,7 @@ canvas {
 }
 
 .our-team:hover .picture img {
-    box-shadow: 0 0 0 14px #f7f5ec;
+    box-shadow: 0 0 0 14px var(--White);
     transform: scale(0.7);
 }
 
@@ -104,7 +105,7 @@ canvas {
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color: #bbbb54;
+    background-color: var(--Dark-Gold);
     position: absolute;
     bottom: -100px;
     left: 0;
@@ -123,12 +124,12 @@ canvas {
     display: block;
     padding: 10px;
     font-size: 17px;
-    color: white;
+    color: var(--White);
     transition: all 0.3s ease 0s;
     text-decoration: none;
 }
 
 .our-team .social li a:hover {
-    color: #1369ce;
-    background-color: #f7f5ec;
+    color: var(--Light-Blue);
+    background-color: var(--White);
 }

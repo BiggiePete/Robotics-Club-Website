@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+:root {
+    /* Colors */
+    --Light-Gold: #ffffac;
+    --Dark-Gold: #bbbb58;
+    --Darkest-Black: #111;
+    --Darker-Black: #222;
+    --Dark-Black: #1f1f1f;
+    --White: #f2f2f2;
+    --Light-Blue: #5decf4;
+    --Darker-Blue: #068ea0;
+
+    /* Fonts */
+    --Montserrat: 'Montserrat', sans-serif;
+    --Bebas-Neue: 'Bebas Neue', cursive;
+}
 
 ::-webkit-scrollbar:horizontal {
     height: 0;
@@ -13,18 +28,18 @@
 
 ::-webkit-scrollbar {
     width: 5px;
-    background-color: #1f1f1f;
+    background-color: var(--Dark-Black);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #ffffac;
+    background: var(--Light-Gold);
     border-radius: 7px;
 }
 
 html {
     scroll-behavior: smooth;
-    background-color: #111;
+    background-color: var(--Darkest-Black);
 }
 
 /* unvisited link */
@@ -59,7 +74,7 @@ a:active {
     align-items: center;
     height: 60px;
     top: 0;
-    color: #ffffac;
+    color: var(--Light-Gold);
     font-size: 18pt;
     font-family: 'Bebas Neue', cursive;
 }
@@ -68,11 +83,11 @@ a:active {
     position: sticky;
     bottom: 0;
     top: 0px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--Montserrat);
 }
 
 .nav {
-    background: #1f1f1f;
+    background: var(--Dark-Black);
 }
 
 .nav__title {
@@ -80,7 +95,7 @@ a:active {
 }
 
 .nav__list2 {
-    background-color: #1f1f1f;
+    background-color: var(--Dark-Black);
     position: absolute;
     margin-left: -30px;
     padding: 10px;
@@ -107,22 +122,22 @@ a:active {
     align-items: center;
     min-height: 100vh;
     z-index: 0;
-    background: #111;
+    background: var(--Darkest-Black);
     font-family: 'Bebas Neue', cursive;
 }
 
 .hero h1 {
     font-size: 8em;
-    color: #ffffac;
+    color: var(--Light-Gold);
     z-index: 2;
     cursor: default;
     text-align: center;
 }
 
 .subnav {
-    background: rgb(31, 31, 31);
+    background: var(--Dark-Black);
     z-index: 2;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid var(--Darker-Black);
 }
 
 .subnav__container {
@@ -134,7 +149,7 @@ a:active {
 
 .subnav__title {
     font-size: 1.25em;
-    color: #bbbb58;
+    color: var(--Dark-Gold);
 }
 
 .subnav__list {
@@ -146,5 +161,5 @@ a:active {
     margin: 0 8px;
     padding: 5px;
     font-size: 1.5em;
-    color: #bbbb58;
+    color: var(--Dark-Gold);
 }

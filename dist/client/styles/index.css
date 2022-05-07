@@ -1,2 +1,31 @@
-/* Add a black background color to the top navigation */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import './general_Styles.css';
+
+.text-section {
+    background-color: var(--Dark-Black);
+    border-radius: 7px;
+    max-width: 100%;
+    min-width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: fit-content;
+    color: var(--White);
+}
+
+/* Title */
+.text-section h1 {
+    color: #bbbb58;
+    padding: 10px;
+    padding-bottom: 0;
+    font-size: 3em;
+    font-family: var(--Montserrat);
+}
+
+/* Sub-Title */
+.text-section h2 {
+    color: var(--Light-Gold);
+    font-size: 1.5em;
+    padding: 10px;
+    padding-top: 0;
+    margin-top: -30px;
+    font-family: var(--Montserrat);
+}
