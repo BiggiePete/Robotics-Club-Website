@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { decideAA } from './experience_helperfuncs';
 import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 
 /*
@@ -32,7 +33,8 @@ const material = new THREE.MeshBasicMaterial({
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
-const controls = new PointerLockControls(camera, document.body);
+const controls = new OrbitControls(camera,renderer.domElement);
+controls.update();
 //use the pointer lock controls to make a good fps camera controller
 
 
@@ -40,10 +42,11 @@ camera.position.z = 5;
 
 function animate(): void {
     requestAnimationFrame(animate);
+    controls.update();
     const delta = clock.getDelta();
 
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    //cube.rotation.x += 0.01;
+    //cube.rotation.y += 0.01;
 
     renderer.render(scene, camera);
 };
