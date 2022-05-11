@@ -30,8 +30,13 @@
 
 
 <script>
-    setTimeout(function (){
-        console.log(document.getElementsByClassName("smgc-watermark")[0].remove())
-    },2000)
+    let NEXTBUTTON, BACKBUTTON;
 
+
+    function REMOVE() {
+        setTimeout(function () {
+            console.log(document.getElementsByClassName("smgc-watermark")[0].remove())
+        }, 2000)
+    }
+    REMOVE();
 </script>

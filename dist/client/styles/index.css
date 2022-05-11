@@ -13,7 +13,7 @@
 
 /* Title */
 .text-section h1 {
-    color: #bbbb58;
+    color: var(--Dark-Gold);
     padding: 10px;
     padding-bottom: 0;
     font-size: 3em;
