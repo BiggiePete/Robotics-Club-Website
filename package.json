@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "projects": "node ./projects.js",
     "dev": "webpack serve --config ./src/client/webpack.dev.js",
     "prod": "webpack serve --config ./src/client/webpack.prod.js"
   },
