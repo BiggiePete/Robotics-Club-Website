@@ -1,0 +1,5 @@
+@import './general_Styles.css';
+
+.team-leads{
+    color: var(--Dark-Gold);
+}

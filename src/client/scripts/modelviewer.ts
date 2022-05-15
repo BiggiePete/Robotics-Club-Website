@@ -2,8 +2,6 @@ import * as THREE from 'three'
 import { decideAA } from './experience_helperfuncs'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader'
 import { Euler, Material, Object3D, Vector3 } from 'three'
@@ -14,7 +12,7 @@ import { getCenterPoint, getRadius, setPos } from './modelviewer_helperfuncs'
 //#region LOADER DEFINES
 const loadingManager = new THREE.LoadingManager(() => {
 
-    
+    BuildScene();
     const loadingScreen = document.getElementById('loading-screen');
 
 }, function (url, itemsLoaded, itemsTotal) {
@@ -26,17 +24,10 @@ const loadingManager = new THREE.LoadingManager(() => {
 
 }, function () {
     console.log('Loading complete!');
-    BuildScene();
 });
 const OBJloader = new OBJLoader(loadingManager);
 const MTLloader = new MTLLoader(loadingManager);
 const FBXloader = new FBXLoader(loadingManager);
-const GLTFloader = new GLTFLoader(loadingManager);
-const DRACOloader = new DRACOLoader(loadingManager);
-
-//setup gltf loader
-DRACOloader.setDecoderPath('../../../node_modules/three/examples/js/libs/draco') // fix
-GLTFloader.dracoLoader = DRACOloader;
 
 function LoadObject(o: string, type: string) {
     o = './Media/3dmodels/' + o + '.' + type;
@@ -46,21 +37,6 @@ function LoadObject(o: string, type: string) {
                 object.name = o.slice(o.lastIndexOf("/") + 1, o.lastIndexOf("."));
                 object.scale.multiplyScalar(0.01)
                 scene.add(object);
-            });
-            break;
-        case "gltf" || "GLTF" || "glb" || "GLB":
-            GLTFloader.load(o, function (object) {
-                object.scene.traverse(function (gltf) {
-
-                    if (gltf.isObject3D) {
-                        gltf.castShadow = true;
-                        gltf.receiveShadow = true;
-                    }
-                });
-                //object.scene.name = o.slice(o.lastIndexOf("/") + 1, o.lastIndexOf("."));
-                let object_ = new Object3D()
-                object_ = object.scene
-                scene.add(object_);
             });
             break;
         case "obj" || "OBJ":
@@ -84,7 +60,7 @@ Email : peter.cross222@gmail.com
 */
 
 //vars to play with : 
-var FinalFullBuildv56: THREE.Object3D
+const CameraFOV = 75;
 
 //get the data from the script tag we live in : 
 const args = document.currentScript?.outerHTML.slice(document.currentScript?.outerHTML.lastIndexOf('=') + 2, document.currentScript?.outerHTML.lastIndexOf('"')).split(',');
@@ -95,11 +71,14 @@ LoadObject(args![0], args![1])
 
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const canvas = document.getElementById(args![0])
+const camera = new THREE.PerspectiveCamera(CameraFOV, window.innerWidth / window.innerHeight, 0.1, 1000);
 const clock = new THREE.Clock();
+console.log(canvas)
 const renderer = new THREE.WebGLRenderer({
     antialias: decideAA(),
     powerPreference: "high-performance",
+    canvas: canvas ? canvas : undefined // he he he haw
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -143,12 +122,10 @@ function BuildScene() {
     //rotate the object as the page desires
     model?.setRotationFromEuler(new Euler(rad(parseInt(args![2])), rad(parseInt(args![3])), rad(parseInt(args![4]))))
     //center the object in the scene
-    if (args![1] != 'gtlf' || 'glb' || 'GLTF' || 'GLB') {
-        const center = getCenterPoint(model!);
-        console.log(center)
-        model?.position.set(model.position.x - center.x, model.position.y - center.y, model.position.z - center.z);
-        camera.position.x = getRadius(model!) + 3;
-    }
+    const center = getCenterPoint(model!);
+    console.log(center)
+    model?.position.set(model.position.x - center.x, model.position.y - center.y, model.position.z - center.z);
+    camera.position.x = getRadius(model!) + 3;
 
 }
 

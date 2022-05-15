@@ -5,7 +5,7 @@
     "description": "construction of the flux coil",
     "team_leads": ["William Chumsworth"],
     "image_urls": ["https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1989/2017/06/13230326/figure-24-02-01.jpeg"],
-    "cad_model_names": [],
+    "cad_model_names": ["box.obj"],
     "custom_html": ""
 }, {
     "name": "testingMain",
