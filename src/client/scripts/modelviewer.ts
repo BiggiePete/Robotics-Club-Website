@@ -1,18 +1,20 @@
-
-import * as HELP from './modelviewer_helperfuncs'
-
 import * as THREE from 'three'
 import { decideAA } from './experience_helperfuncs'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
-import { LoadingManager, Object3D } from 'three';
-
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader'
+import { Euler, Material, Object3D, Vector3 } from 'three'
+import { rad } from './math_funcs'
+import { getCenterPoint, getRadius, setPos } from './modelviewer_helperfuncs'
 
 
 //#region LOADER DEFINES
 const loadingManager = new THREE.LoadingManager(() => {
 
-    BuildScene();
+    
     const loadingScreen = document.getElementById('loading-screen');
 
 }, function (url, itemsLoaded, itemsTotal) {
@@ -23,22 +25,57 @@ const loadingManager = new THREE.LoadingManager(() => {
     //document.getElementById("percent-loaded").innerText = lp.toFixed(2) + "%";
 
 }, function () {
-
     console.log('Loading complete!');
-
+    BuildScene();
 });
+const OBJloader = new OBJLoader(loadingManager);
+const MTLloader = new MTLLoader(loadingManager);
 const FBXloader = new FBXLoader(loadingManager);
+const GLTFloader = new GLTFLoader(loadingManager);
+const DRACOloader = new DRACOLoader(loadingManager);
 
-function LoadObject(o: string) {
-    o = './Media/3dmodels/' + o + '.fbx';
-    FBXloader.load(o, function (object) {
-        object.name = o.slice(o.lastIndexOf("/") + 1, o.lastIndexOf("."));
-        object.scale.multiplyScalar(0.01)
-        scene.add(object);
-    });
+//setup gltf loader
+DRACOloader.setDecoderPath('../../../node_modules/three/examples/js/libs/draco') // fix
+GLTFloader.dracoLoader = DRACOloader;
+
+function LoadObject(o: string, type: string) {
+    o = './Media/3dmodels/' + o + '.' + type;
+    switch (type) {
+        case "fbx" || "FBX":
+            FBXloader.load(o, function (object) {
+                object.name = o.slice(o.lastIndexOf("/") + 1, o.lastIndexOf("."));
+                object.scale.multiplyScalar(0.01)
+                scene.add(object);
+            });
+            break;
+        case "gltf" || "GLTF" || "glb" || "GLB":
+            GLTFloader.load(o, function (object) {
+                object.scene.traverse(function (gltf) {
+
+                    if (gltf.isObject3D) {
+                        gltf.castShadow = true;
+                        gltf.receiveShadow = true;
+                    }
+                });
+                //object.scene.name = o.slice(o.lastIndexOf("/") + 1, o.lastIndexOf("."));
+                let object_ = new Object3D()
+                object_ = object.scene
+                scene.add(object_);
+            });
+            break;
+        case "obj" || "OBJ":
+            MTLloader.load(o.substring(0, o.length - 3) + 'mtl', function (material) {
+                OBJloader.setMaterials(material);
+                OBJloader.load(o, function (obj) {
+                    scene.add(obj)
+                })
+            })
+            break;
+        default:
+            break;
+    }
 }
 
-//#endregion LOADER DEFINED
 
 /*
 3D model viewer using THREEjs
@@ -47,14 +84,14 @@ Email : peter.cross222@gmail.com
 */
 
 //vars to play with : 
-var FinalFullBuildv56:Object3D
+var FinalFullBuildv56: THREE.Object3D
 
 //get the data from the script tag we live in : 
-const objectname = document.currentScript?.outerHTML.slice(document.currentScript?.outerHTML.lastIndexOf('=') + 2, document.currentScript?.outerHTML.lastIndexOf('"'));
+const args = document.currentScript?.outerHTML.slice(document.currentScript?.outerHTML.lastIndexOf('=') + 2, document.currentScript?.outerHTML.lastIndexOf('"')).split(',');
 
 //Model to Load : 
-console.log(objectname);
-LoadObject(objectname ? objectname : "") // i hate this
+console.log(args);
+LoadObject(args![0], args![1])
 
 
 const scene = new THREE.Scene();
@@ -67,23 +104,12 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({
-    color: 0xa7cca7,
-    wireframe: true,
-});
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-
-
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.update();
 //use the pointer lock controls to make a good fps camera controller
 const ambientLight = new THREE.AmbientLight()
+ambientLight.intensity = 0.8;
 scene.add(ambientLight)
-const light = new THREE.PointLight()
-light.position.set(0.8, 1.4, 1.0)
-scene.add(light)
 
 camera.position.z = 5;
 
@@ -91,7 +117,6 @@ function animate(): void {
     requestAnimationFrame(animate);
     controls.update();
     const delta = clock.getDelta();
-    console.log(scene.getObjectByName("FinalFullBuildv56"));
 
     renderer.render(scene, camera);
 };
@@ -111,8 +136,20 @@ function onWindowResize() {
 
 let model
 function BuildScene() {
+    console.log(scene)
     //gets the object that got loaded, and passes it into the model var
     //first thing we need to do is load the "OBJECT", but to know what object to load, we need the name (dir) of the object
+    model = scene.getObjectByName(args![0]);
+    //rotate the object as the page desires
+    model?.setRotationFromEuler(new Euler(rad(parseInt(args![2])), rad(parseInt(args![3])), rad(parseInt(args![4]))))
+    //center the object in the scene
+    if (args![1] != 'gtlf' || 'glb' || 'GLTF' || 'GLB') {
+        const center = getCenterPoint(model!);
+        console.log(center)
+        model?.position.set(model.position.x - center.x, model.position.y - center.y, model.position.z - center.z);
+        camera.position.x = getRadius(model!) + 3;
+    }
+
 }
 
 
