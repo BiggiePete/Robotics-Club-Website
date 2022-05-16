@@ -60,13 +60,13 @@ async function addItem(database) {
     const newproject = {
         name: await getInput("Name of the Project : "),
         year: await getNInput("Year the project ran : "),
-        semester: await getInput("Semester the project ran (Summer/fall/Spring) : "),
+        semester: await getInput("Semester the project ran (Summer/Fall/Spring) : "),
         description: await getInput("Description of the project, think of what got done, and what the goals were : "),
         team_leads: await getMultiInput("Team Lead Name : ", await getNInput("Number of team leads that ran the project : ")),
         image_urls: await getMultiInput("Link to Image : ", await getNInput("Number of images to attach : ")),
         cad_model_names: await getMultiInput("Name of CAD model to show (in order) : ", await getNInput("Number of CAD models to display : ")),
-        readme: await getInput("Name of README file, or link to it"),
-        custom_html: await getInput("Custom HTML: "),
+        readme: await getInput("Name of README file, or link to it : "),
+        custom_html: await getInput("Custom HTML : "),
     }
     database.push(newproject);
 }
@@ -118,7 +118,7 @@ async function drawMenuMain() {
     console.log("1 : Add Item");
     console.log("2 : Remove Item");
     console.log("3 : Edit Item");
-    console.log("4 : Exit");
+    console.log("4 : Write & Quit");
     try {
         const answer = await question('Selection : ');
         return parseInt(answer);

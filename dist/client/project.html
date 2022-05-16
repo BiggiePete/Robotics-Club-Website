@@ -12,15 +12,24 @@
 </head>
 <script defer src="Start_Alpine-bundle.js"></script>
 <script defer src="Html_Include-bundle.js"></script>
-
+<script defer src="projecthandler-bundle.js"></script>
+<script defer src="modelviewer-bundle.js" args="Mainbipedalassmebly2,fbx,0,0,0"></script>
 <!-- this document is an example of what the project page will look like when a project is complete-->
+
+
+<!--JUST REDO ALL OF THIS TBH-->
 
 <div style="position:absolute; left:0; top:0; width: 100%;">
     <include src="./templates/nav.html"></include>
-    <div class="hero">
-        <h1 style="margin-top:-10vh; margin-bottom: 10px; padding:0px;">Project name</h1>
-        <h1  style="font-size:1.5em ;margin-top:-90vh;">
-            <ul style="list-style-type:none; display: inline-block;">
+
+    <div class="hero" style="margin-bottom: -30vh;">
+        <h1 id="proj-name" style="margin-top:10vh; padding:0px;">Project name</h1>
+        <h1 style="font-size:1.5em ;margin-top:-90vh; margin-bottom: 0%;">
+            Semester / Season &MediumSpace; YEAR
+        </h1>
+        <h1 style="font-size:1.5em ;margin-top:-100vh;">
+            <hr>
+            <ul id="proj-team-leads" style="list-style-type:none; align-items: center; display: inline;">
                 <li class="team-leads">
                     team lead name 1
                 </li>
@@ -29,6 +38,26 @@
                 </li>
             </ul>
         </h1>
+    </div>
+    <h1>
+        Description
+    </h1>
+    <div style="justify-content: center;">
+        <p id="proj-description" style="margin-top:-5vh ;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis voluptatem aspernatur voluptates optio a, quod
+            accusamus molestias ab quaerat reprehenderit exercitationem in ipsa ducimus quam vel maxime magni voluptate
+            fuga!
+        </p>
+    </div>
+    <h1>
+        ReadMe
+    </h1>
+    <div style="justify-content: center;">
+        <p id="proj-readme" style="margin-top:-5vh ;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis voluptatem aspernatur voluptates optio a, quod
+            accusamus molestias ab quaerat reprehenderit exercitationem in ipsa ducimus quam vel maxime magni voluptate
+            fuga!
+        </p>
     </div>
 </div>
 

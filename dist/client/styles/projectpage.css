@@ -3,3 +3,34 @@
 .team-leads{
     color: var(--Dark-Gold);
 }
+h1{
+    font-size: 8em;
+    color: var(--Light-Gold);
+    z-index: 2;
+    cursor: default;
+    text-align: center;
+    font-family: var(--Bebas-Neue);
+}
+#proj-description{
+    color: var(--White);
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    top: 85%; right: 50%;
+    position: absolute;
+    text-align: center;
+    transform: translate(50%,-50%);
+}
+#proj-readme{
+    color: var(--White);
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    top: 100%; right: 50%;
+    position: absolute;
+    text-align: center;
+    transform: translate(50%,-50%);
+}
+canvas{
+    position: relative;
+}

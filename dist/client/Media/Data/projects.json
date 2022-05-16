@@ -1,19 +1,11 @@
 [{
-    "name": "Flux Coil",
-    "year": 2145,
-    "semester": "Summer",
-    "description": "construction of the flux coil",
-    "team_leads": ["William Chumsworth"],
-    "image_urls": ["https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1989/2017/06/13230326/figure-24-02-01.jpeg"],
-    "cad_model_names": ["box.obj"],
-    "custom_html": ""
-}, {
-    "name": "testingMain",
-    "year": 1999,
+    "name": "Bipedal Walker",
+    "year": 2022,
     "semester": "Spring",
-    "description": "some testing was done, it was mid tho",
-    "team_leads": ["kyle", "jerry"],
-    "image_urls": [],
-    "cad_model_names": [],
+    "description": "Construct a bipedal walker (2 legs) that is capable of walking short distances with minimal assistance",
+    "team_leads": ["Peter Cross", "Logan Owens"],
+    "image_urls": ["bipedal_img.jpg"],
+    "cad_model_names": ["Mainbipedalassembly2.fbx"],
+    "readme": "bipedal.md",
     "custom_html": ""
 }]
