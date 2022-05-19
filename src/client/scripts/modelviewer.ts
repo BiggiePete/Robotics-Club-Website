@@ -19,6 +19,10 @@ const loadingManager = new THREE.LoadingManager(() => {
 
     //console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
     let lp = (itemsLoaded / itemsTotal) * 100;
+    // build a loading bar for all canvases
+    //maybe look into loading async, then render the loading bar
+
+
     //document.getElementById("loading-bar").style.cssText = "width: " + lp + "%;";
     //document.getElementById("percent-loaded").innerText = lp.toFixed(2) + "%";
 
@@ -40,8 +44,8 @@ function LoadObject(o: string, type: string) {
             });
             break;
         case "obj" || "OBJ":
-            MTLloader.load(o.substring(0, o.length - 3) + 'mtl', function (material) {
-                OBJloader.setMaterials(material);
+            MTLloader.load(o.substring(0, o.length - 3) + 'mtl', function (mat) {
+                OBJloader.setMaterials(mat);
                 OBJloader.load(o, function (obj) {
                     scene.add(obj)
                 })
