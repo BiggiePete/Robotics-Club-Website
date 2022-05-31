@@ -6,6 +6,6 @@
     "team_leads": ["Peter Cross", "Logan Owens"],
     "image_urls": ["bipedal_img.jpg"],
     "cad_model_names": ["Mainbipedalassembly2.fbx"],
-    "readme": "bipedal.md",
+    "external_links": ["https://github.com/RoboticsClubatUCF/Bipedal-BODS"],
     "custom_html": ""
 }]

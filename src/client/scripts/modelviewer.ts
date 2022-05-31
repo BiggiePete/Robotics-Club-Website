@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader'
-import { Euler, Material, Object3D, Vector3 } from 'three'
+import { Color, Euler, Material, Object3D, Vector3 } from 'three'
 import { rad } from './math_funcs'
 import { getCenterPoint, getRadius, setPos } from './modelviewer_helperfuncs'
 
@@ -39,7 +39,7 @@ function LoadObject(o: string, type: string) {
         case "fbx" || "FBX":
             FBXloader.load(o, function (object) {
                 object.name = o.slice(o.lastIndexOf("/") + 1, o.lastIndexOf("."));
-                object.scale.multiplyScalar(0.01)
+                //object.scale.multiplyScalar(0.01)
                 scene.add(object);
             });
             break;
@@ -75,10 +75,14 @@ LoadObject(args![0], args![1])
 
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xc8c8c8)
 const canvas = document.getElementById(args![0])
 const camera = new THREE.PerspectiveCamera(CameraFOV, window.innerWidth / window.innerHeight, 0.1, 1000);
 const clock = new THREE.Clock();
 console.log(canvas)
+
+
+
 const renderer = new THREE.WebGLRenderer({
     antialias: decideAA(),
     powerPreference: "high-performance",
@@ -86,6 +90,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.update();
@@ -94,7 +99,6 @@ const ambientLight = new THREE.AmbientLight()
 ambientLight.intensity = 0.8;
 scene.add(ambientLight)
 
-camera.position.z = 5;
 
 function animate(): void {
     requestAnimationFrame(animate);
@@ -118,7 +122,10 @@ function onWindowResize() {
 
 
 let model
-function BuildScene() {
+/**
+ * handles setting up the scene for the user
+ */
+function BuildScene(): void {
     console.log(scene)
     //gets the object that got loaded, and passes it into the model var
     //first thing we need to do is load the "OBJECT", but to know what object to load, we need the name (dir) of the object
@@ -129,7 +136,13 @@ function BuildScene() {
     const center = getCenterPoint(model!);
     console.log(center)
     model?.position.set(model.position.x - center.x, model.position.y - center.y, model.position.z - center.z);
-    camera.position.x = getRadius(model!) + 3;
+
+    let radius = getRadius(model!)
+    radius = radius < 1 ? radius+=1 : radius;
+    const ground = new THREE.PolarGridHelper(radius + 2,6,3);
+    ground.position.y = -radius
+    scene.add(ground)
+    camera.position.set(radius,radius,radius)
 
 }
 

@@ -85,5 +85,6 @@ export function getRadius(mesh: Object3D) {
     console.log(geometry);
     let sphere = new Sphere()
     geometry.getBoundingSphere(sphere);
+    console.log(sphere);
     return sphere.radius;
 }

@@ -65,7 +65,7 @@ async function addItem(database) {
         team_leads: await getMultiInput("Team Lead Name : ", await getNInput("Number of team leads that ran the project : ")),
         image_urls: await getMultiInput("Link to Image : ", await getNInput("Number of images to attach : ")),
         cad_model_names: await getMultiInput("Name of CAD model to show (in order) : ", await getNInput("Number of CAD models to display : ")),
-        readme: await getInput("Name of README file, or link to it : "),
+        external_links: await getMultiInput("External Link to other docuements : ",await getNInput("Number of Links to add : ")),
         custom_html: await getInput("Custom HTML : "),
     }
     database.push(newproject);
@@ -80,7 +80,11 @@ async function editItem() {
     console.warn("NOT IMPLEMENTED YET");
     return;
 }
-
+/**
+ * 
+ * @param {String} q query string to disply to the user
+ * @returns typed response from user (Int only)
+ */
 async function getNInput(q) {
     try {
         const a = await question(q);
@@ -89,7 +93,11 @@ async function getNInput(q) {
         console.error('Question rejected', err);
     }
 }
-
+/**
+ * 
+ * @param {String} q query string to disply to the user
+ * @returns typed response from user (String only)
+ */
 async function getInput(q) {
     try {
         return await question(q);
@@ -97,7 +105,12 @@ async function getInput(q) {
         console.error('Question rejected', err);
     }
 }
-
+/**
+ * 
+* @param {String} q quesry string to disply to the user
+ * @param {Number} n number of queries
+ * @returns array of responses
+ */
 async function getMultiInput(q, n) {
     var response = [];
     for (let i = 0; i < n; i++) {
