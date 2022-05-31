@@ -1,3 +1,4 @@
+import {ForceLoad} from "./modelviewer"
 /**
  * finds the name of the project within the url
  * @returns {string} name of the project, described by the chars following the last '#' in the URL
@@ -19,7 +20,6 @@ async function getProjectInfo(projname: string) {
     console.warn("PROJECT CANNOT BE FOUND")
 
 }
-let monkey = "monkey";
 async function generatePage() {
     document.getElementById("proj-team-leads")!.innerHTML = "";
     const info = await getProjectInfo(determineProject());
@@ -43,6 +43,9 @@ async function generatePage() {
         //parse out the name of the url
         let link_name = info.external_links[i].slice(info.external_links[i].indexOf("//") + 2, info.external_links[i].lastIndexOf("."));
         document.getElementById("proj-links")!.innerHTML += "<a class='proj-link' href='" + info.external_links[i] + "'>" + link_name + "</a>"
+    }
+    if(info.cad_model_name != "None"){
+        ForceLoad(info.cad_model_name.slice(0,info.cad_model_name.indexOf(".")),info.cad_model_name.slice(info.cad_model_name.indexOf(".")+1),0,0,0)
     }
 }
 generatePage();

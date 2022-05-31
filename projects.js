@@ -64,7 +64,7 @@ async function addItem(database) {
         description: await getInput("Description of the project, think of what got done, and what the goals were : "),
         team_leads: await getMultiInput("Team Lead Name : ", await getNInput("Number of team leads that ran the project : ")),
         image_urls: await getMultiInput("Link to Image : ", await getNInput("Number of images to attach : ")),
-        cad_model_names: await getMultiInput("Name of CAD model to show (in order) : ", await getNInput("Number of CAD models to display : ")),
+        cad_model_name: await getInput("Name of CAD Model (if none, type 'None'): "),
         external_links: await getMultiInput("External Link to other docuements : ",await getNInput("Number of Links to add : ")),
         custom_html: await getInput("Custom HTML : "),
     }

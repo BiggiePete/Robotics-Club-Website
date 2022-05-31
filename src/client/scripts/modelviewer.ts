@@ -47,7 +47,7 @@ function LoadObject(o: string, type: string) {
             MTLloader.load(o.substring(0, o.length - 3) + 'mtl', function (mat) {
                 OBJloader.setMaterials(mat);
                 OBJloader.load(o, function (obj) {
-                    scene.add(obj)
+                    scene.add(obj);
                 })
             })
             break;
@@ -65,39 +65,50 @@ Email : peter.cross222@gmail.com
 
 //vars to play with : 
 const CameraFOV = 75;
+const BackgroundColor = 0x202020;
 
-//get the data from the script tag we live in : 
+
 const args = document.currentScript?.outerHTML.slice(document.currentScript?.outerHTML.lastIndexOf('=') + 2, document.currentScript?.outerHTML.lastIndexOf('"')).split(',');
+export function ForceLoad(a: any, b: any, c: any, d: any, e: any) {
+    args![0] = a;
+    args![1] = b;
+    args![2] = c;
+    args![3] = d;
+    args![4] = e;
+    init();
+}
+//get the data from the script tag we live in : 
 
-//Model to Load : 
-console.log(args);
-LoadObject(args![0], args![1])
 
-
+//globals
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xc8c8c8)
-const canvas = document.getElementById(args![0])
+scene.background = new THREE.Color(BackgroundColor);
+const canvas = undefined
 const camera = new THREE.PerspectiveCamera(CameraFOV, window.innerWidth / window.innerHeight, 0.1, 1000);
 const clock = new THREE.Clock();
-console.log(canvas)
-
-
-
 const renderer = new THREE.WebGLRenderer({
     antialias: decideAA(),
     powerPreference: "high-performance",
     canvas: canvas ? canvas : undefined // he he he haw
 });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.update();
-//use the pointer lock controls to make a good fps camera controller
-const ambientLight = new THREE.AmbientLight()
-ambientLight.intensity = 0.8;
-scene.add(ambientLight)
+const ambientLight = new THREE.AmbientLight();
+
+//Model to Load : 
+function init() {
+    console.log(args);
+    LoadObject(args![0], args![1]);
+    console.log(canvas);
+
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+    controls.update();
+    ambientLight.intensity = 0.8;
+    scene.add(ambientLight);
+}
 
 
 function animate(): void {
@@ -121,28 +132,28 @@ function onWindowResize() {
 }
 
 
-let model
+let model;
 /**
  * handles setting up the scene for the user
  */
 function BuildScene(): void {
-    console.log(scene)
+    console.log(scene);
     //gets the object that got loaded, and passes it into the model var
     //first thing we need to do is load the "OBJECT", but to know what object to load, we need the name (dir) of the object
     model = scene.getObjectByName(args![0]);
     //rotate the object as the page desires
-    model?.setRotationFromEuler(new Euler(rad(parseInt(args![2])), rad(parseInt(args![3])), rad(parseInt(args![4]))))
+    model?.setRotationFromEuler(new Euler(rad(parseInt(args![2])), rad(parseInt(args![3])), rad(parseInt(args![4]))));
     //center the object in the scene
     const center = getCenterPoint(model!);
-    console.log(center)
+    console.log(center);
     model?.position.set(model.position.x - center.x, model.position.y - center.y, model.position.z - center.z);
 
-    let radius = getRadius(model!)
-    radius = radius < 1 ? radius+=1 : radius;
-    const ground = new THREE.PolarGridHelper(radius + 2,6,3);
-    ground.position.y = -radius
-    scene.add(ground)
-    camera.position.set(radius,radius,radius)
+    let radius = getRadius(model!);
+    radius = radius < 1 ? radius += 1 : radius;
+    const ground = new THREE.PolarGridHelper(radius + 2, 6, 3);
+    ground.position.y = -radius;
+    scene.add(ground);
+    camera.position.set(radius, radius, radius);
 
 }
 
