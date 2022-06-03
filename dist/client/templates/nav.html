@@ -1,27 +1,27 @@
 <div style="position:absolute; left:0; top:0; width: 100%;">
     <nav class="nav">
-        <div class="nav__title">Robotics Club of Central Florida (RCCF)</div>
+        <div class="nav__title"><a href="./">Robotics Club of Central Florida (RCCF)</a></div>
         <ul class="nav__list" x-data="{drop:false}">
             <li class="nav__item">
                 <a href="./sponsors.html">SPONSORS</a>
             </li>
             <li class="nav__item">
-                <a href="./calendar.html">Contact</a>
+                <a href="./calendar.html">Calendar</a>
             </li>
             <li class="nav__item">
                 <a href="./projects.html">PROJECTS</a>
-            </li>
-            <li class="nav__item">
-                <a href="./officers.html">OFFICERS</a>
             </li>
             <li class="nav__item pointer" x-on:click="drop = ! drop">
                 HOME
                 <ul class="nav__list2" x-show="drop" x-collapse>
                     <li class="nav__item2">
-                        <a href="./officers.html">Link 1</a>
+                        <a href="./#about-us">About-us</a>
                     </li>
                     <li class="nav__item2">
-                        <a href="./">Link 2</a>
+                        <a href="./officers.html">officers</a>
+                    </li>
+                    <li class="nav__item2">
+                        <a href="./experience.html">Experience</a>
                     </li>
                 </ul>
             </li>

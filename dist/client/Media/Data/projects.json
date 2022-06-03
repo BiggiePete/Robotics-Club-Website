@@ -1,0 +1,11 @@
+[{
+    "name": "Bipedal Walker",
+    "year": 2022,
+    "semester": "Spring",
+    "description": "Construct a bipedal walker (2 legs) that is capable of walking short distances with minimal assistance",
+    "team_leads": ["Peter Cross", "Logan Owens"],
+    "image_urls": ["bipedal_img.jpg"],
+    "cad_model_name": "BipedAssembly.fbx",
+    "external_links": ["https://github.com/RoboticsClubatUCF/Bipedal-BODS"],
+    "custom_html": ""
+}]

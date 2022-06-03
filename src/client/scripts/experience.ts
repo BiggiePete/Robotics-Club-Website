@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { decideAA } from './experience_helperfuncs';
-import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls'
+import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 
 /*
@@ -9,42 +10,56 @@ Created By: Peter Cross
 Email : peter.cross222@gmail.com
 */
 
-
-//#region Loaders
-
-
-
-//#endregion Loaders
+//vars to play with : 
 
 
 
-// create Vars for Scene
+
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const clock = new THREE.Clock();
 const renderer = new THREE.WebGLRenderer({
     antialias: decideAA(),
-    powerPreference: "high-performance", // force higher performant devices
-})
+    powerPreference: "high-performance"
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-init();
-function init() {
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({
+    color: 0xa7cca7,
+    wireframe: true,
+});
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
 
-    renderer.outputEncoding = THREE.sRGBEncoding;
+const controls = new OrbitControls(camera,renderer.domElement);
+controls.update();
+//use the pointer lock controls to make a good fps camera controller
 
-    //shadows
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.BasicShadowMap;
 
-    //tone mapping
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1;
+camera.position.z = 5;
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+function animate(): void {
+    requestAnimationFrame(animate);
+    controls.update();
+    const delta = clock.getDelta();
 
-    scene.background = null;
-    document.body.appendChild(renderer.domElement);
-    const controls = new FirstPersonControls(camera,renderer.domElement);
+    //cube.rotation.x += 0.01;
+    //cube.rotation.y += 0.01;
 
+    renderer.render(scene, camera);
+};
+
+animate();
+
+
+
+window.addEventListener('resize', onWindowResize, false)
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    animate()
 }
 

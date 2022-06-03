@@ -1,19 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+:root {
+    /* Colors */
+    --Light-Gold: #ffffac;
+    --Dark-Gold: #bbbb58;
+    --Darkest-Black: #111;
+    --Darker-Black: #222;
+    --Dark-Black: #1f1f1f;
+    --White: #f2f2f2;
+    --Light-Blue: #5decf4;
+    --Darker-Blue: #068ea0;
+
+    /* Fonts */
+    --Montserrat: 'Montserrat', sans-serif;
+    --Bebas-Neue: 'Bebas Neue', cursive;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 0;
+    width: 0;
+    display: none;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    display: none;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
-    background-color: #1f1f1f;
+    background-color: var(--Dark-Black);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #ffffac;
+    background: var(--Light-Gold);
     border-radius: 7px;
 }
+
 html {
     scroll-behavior: smooth;
+    background-color: var(--Darkest-Black);
 }
+
 /* unvisited link */
 a:link {
     color: inherit;
@@ -37,41 +65,43 @@ a:active {
     color: inherit;
     text-decoration: underline;
 }
+
 .nav {
     z-index: 3;
     position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: auto;
+    min-height: 60px;
+    max-height: 120px;
     top: 0;
-    color: #ffffac;
+    color: var(--Light-Gold);
     font-size: 18pt;
-    font-family: 'Bebas Neue', cursive;
+    font-family: var(--Bebas-Neue);
+    background: var(--Dark-Black);
 }
 
 .subnav {
     position: sticky;
     bottom: 0;
-    top: 60px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.nav {
-    background: #1f1f1f;
+    top: 0px;
+    font-family: var(--Montserrat);
 }
 
 .nav__title {
     margin: 0px 30px;
 }
 
-.nav__list2{
-    background-color: #1f1f1f;
+.nav__list2 {
+    background-color: var(--Dark-Black);
     position: absolute;
+    margin-left: -30px;
     padding: 10px;
 }
-.pointer:hover{
-    cursor:pointer;
+
+.pointer:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -80,31 +110,33 @@ a:active {
     display: inline-block;
     margin: 0px 30px;
 }
+
 .nav__item2 {
     display: block;
 }
+
 .hero {
     display: grid;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     z-index: 0;
-    background: #bbbb58;
-    font-family: 'Bebas Neue', cursive;
+    background: var(--Darkest-Black);
+    font-family: var(--Bebas-Neue);
 }
 
 .hero h1 {
     font-size: 8em;
-    color: #ffffac;
+    color: var(--Light-Gold);
     z-index: 2;
     cursor: default;
     text-align: center;
 }
 
 .subnav {
-    background: rgb(31, 31, 31);
+    background: var(--Dark-Black);
     z-index: 2;
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid var(--Darker-Black);
 }
 
 .subnav__container {
@@ -116,7 +148,7 @@ a:active {
 
 .subnav__title {
     font-size: 1.25em;
-    color: #bbbb58;
+    color: var(--Dark-Gold);
 }
 
 .subnav__list {
@@ -128,6 +160,5 @@ a:active {
     margin: 0 8px;
     padding: 5px;
     font-size: 1.5em;
-    color: #bbbb58;
+    color: var(--Dark-Gold);
 }
-

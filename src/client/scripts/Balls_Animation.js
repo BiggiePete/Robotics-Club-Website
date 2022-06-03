@@ -1,4 +1,10 @@
-const PIXI = require('pixi.js')
+const PIXI = require('pixi.js');
+const {
+    rad,
+    map,
+    lerp,
+    deg
+} = require("./math_funcs");
 const MainColor = 0xFFD700;
 const BallColor = 0xF2F2F2;
 const num_balls = 200;
@@ -82,6 +88,9 @@ window.onresize = function () {
     resize_handler();
 }
 resize_handler();
+setTimeout(() => {
+    resize_handler();
+}, 1000)
 
 function resize_handler() {
     app.renderer.resize(document.getElementsByClassName("hero")[0].getBoundingClientRect().width, document.getElementsByClassName("hero")[0].getBoundingClientRect().height);
@@ -95,7 +104,7 @@ GenerateBallData();
 
 function GenerateBallData() {
     for (let i = 0; i < balls.length; i++) {
-        var _r = 0.5 + Math.random() * 1.5;
+        var _r = 2 + Math.random() * 1.5;
         let tmp_vect = new Vector(rad(Math.random() * 360), (Math.random() * 8) / 50); // all math is in radians
         balls[i] = new ballInfo(
             _r,
@@ -151,7 +160,7 @@ function CursorHandler(delta) {
             ball.color = MainColor;
             Glow(ball.x, ball.y, MainColor, 4, 3, true);
             line.position = new PIXI.Point(0, 0);
-            line.lineStyle(1 / map(distancetocursor(ball.x, ball.y), 0, 70, 0.2, 3), linecolor)
+            line.lineStyle(5 / map(distancetocursor(ball.x, ball.y), 0, 70, 0.2, 3), linecolor)
             line.moveTo(ball.x, ball.y);
             line.lineTo(mousePos.x, mousePos.y);
             if (mousePos.down) {
@@ -199,43 +208,9 @@ function ClickHandler() { //
         num_clicks = 0;
     }
 }
-let CursorButtons = new PIXI.Graphics();
 
 function DoubleClickHandler() { // fires whenever the user double clicks on the page
-    CursorButtons.clear();
-    CursorButtons.lineStyle(1, MainColor);
-    //generate the "exit this circle to cancel" circle
-    CursorButtons.drawCircle(mousePos.x, mousePos.y, 130)
-
-    //generate the buttons
-    CursorButtons.lineStyle(1, BallColor);
-    CursorButtons.arc(mousePos.x, mousePos.y, 100, rad(-90), rad(0)); // outer
-    CursorButtons.endFill();
-    CursorButtons.arc(mousePos.x, mousePos.y, 40, rad(-90), rad(0)); // inner
-    CursorButtons.moveTo(mousePos.x + 40, mousePos.y);
-    CursorButtons.lineTo(mousePos.x + 100, mousePos.y);
-    CursorButtons.endFill()
-    CursorButtons.moveTo(mousePos.x, mousePos.y - 40);
-    CursorButtons.lineTo(mousePos.x, mousePos.y - 100);
-    CursorButtons.endFill();
-    drawButtons(3);
-    /**
-     * 
-     * @param {Number} N - Number of buttons to Create 
-     */
-    function drawButtons(N) {
-        CursorButtons.lineStyle(1, BallColor); // set the line color
-        /*Do some math to find out how to allocate the arc lengths */
-        let spacing = 5 // how much space we want between each button, in degrees
-        let arclen = (360 / N) //arc length in degrees
-        while (N > 0) { // iterates for every button we need to create
-            N--;
-            CursorButtons.arc(mousePos.x, mousePos.y, 100, rad(0 - spacing), rad(-1 * arclen) + rad(spacing), true);
-            CursorButtons.endFill();
-        }
-    }
-
-    app.stage.addChild(CursorButtons);
+    // new idea, when the user double clicks, all of the balls float a little toward the cursor
 }
 
 
@@ -296,42 +271,4 @@ function Glow(x, y, color, resolution, radius, enable) {
         }
         app.stage.addChild(glowgrafx);
     }
-}
-/**
- * 
- * @param {Number} rad 
- * @returns Value converted to Degrees
- */
-function deg(rad) {
-    return (rad * 180) / Math.PI;
-}
-/**
- * 
- * @param {Number} deg 
- * @returns Value converted to Radians
- */
-function rad(deg) {
-    return (deg * Math.PI) / 180
-}
-/**
- * 
- * @param {Number} v0 - Starting Value
- * @param {Number} v1 - Value to Approach
- * @param {Number} t - Time Constant, changes interpolation
- * @returns Amount of Change to interpolate
- */
-function lerp(v0, v1, t) {
-    return v0 * (1 - t) + v1 * t
-}
-/**
- * 
- * @param {Number} x Value
- * @param {Number} in_min Minimum x Value
- * @param {Number} in_max Maximum x Value
- * @param {Number} out_min Minimum desired output
- * @param {Number} out_max Maximum desired output
- * @returns Value between out_min and out_max interpolated for the range linearly
- */
-function map(x, in_min, in_max, out_min, out_max) {
-    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

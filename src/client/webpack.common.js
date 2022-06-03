@@ -7,7 +7,10 @@ module.exports = {
         Start_Alpine: './src/client/scripts/Start_Alpine.js',
         Balls_Animation: './src/client/scripts/Balls_Animation.js',
         Html_Include: './src/client/scripts/Html_Include.js',
-        Experience: './src/client/scripts/experience.ts'
+        Experience: './src/client/scripts/experience.ts',
+        map: './src/client/scripts/map.ts',
+        modelviewer: './src/client/scripts/modelviewer.ts',
+        projecthandler: './src/client/scripts/projecthandler.ts'
     },
     module: {
         rules: [{

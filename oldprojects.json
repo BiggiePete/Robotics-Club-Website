@@ -1,0 +1,16 @@
+{
+    "AGV (Choo Choo)": {
+        "YEAR": 2022,
+        "SEMESTER": "Fall",
+        "DESCRIPTION": "autonomous ground vehicle designed to navigate a course at IGVC",
+        "TEAM LEADS": ["Dwight Howard II", "Connor Henry", "Kate", "Wes Fletcher", "Marc Simmonds"],
+        "links to images": ""
+    },
+    "Bipedal": {
+        "YEAR": 2022,
+        "SEMESTER": "Fall",
+        "DESCRIPTION": "Design and test bipedal walker made in house",
+        "TEAM LEADS": ["Peter Cross", "Logan Owens"],
+        "links to images": "https://stander.com/wp-content/uploads/2018/08/4300-walker.jpg"
+    }
+}

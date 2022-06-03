@@ -3,7 +3,7 @@
         "moduleResolution": "node",
         "strict": true
     },
-    "include": ["./**/*.ts", "scripts/index_load.js", "scripts/Start-Alpine.js", "scripts/Html_Include.js", "scripts/robot_arm.js", "scripts/robot_arm.js"],
+    "include": ["./**/*.ts", "scripts/index_load.js", "scripts/Start-Alpine.js", "scripts/Html_Include.js", "scripts/modelviewer_helperfuncs.js"],
     "exclude": [
         ".webpack/**/*",
         ".vscode/**/*"

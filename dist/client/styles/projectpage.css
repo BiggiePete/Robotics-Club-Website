@@ -1,0 +1,84 @@
+@import './general_Styles.css';
+
+.team-leads {
+    color: var(--Dark-Gold);
+}
+
+h1 {
+    font-size: 8em;
+    color: var(--Light-Gold);
+    z-index: 2;
+    cursor: default;
+    text-align: center;
+    font-family: var(--Bebas-Neue);
+}
+
+#proj-description {
+    color: var(--White);
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    top: 85%;
+    right: 50%;
+    position: absolute;
+    text-align: center;
+    transform: translate(50%, -50%);
+}
+
+.proj-link:link {
+    color: var(--Dark-Gold);
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    font-size: 3em;
+    padding: 10px;
+    text-align: center;
+}
+
+.proj-link:visited {
+    color: var(--Dark-Gold);
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    font-size: 3em;
+    padding: 10px;
+    text-align: center;
+}
+
+.proj-link:active {
+    color: var(--Dark-Gold);
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    font-size: 3em;
+    padding: 10px;
+    text-align: center;
+}
+
+.proj-link:hover {
+    color: var(--White);
+    padding: 10px;
+    font-family: var(--Montserrat);
+    max-width: 80%;
+    min-width: 300px;
+    font-size: 3em;
+    text-align: center;
+}
+
+img {
+    width: inherit;
+    min-height: 100px;
+    max-width: 600px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+canvas {
+    position: absolute;
+    max-width: 80%;
+    max-height: 800px;
+    left: 50%;
+    transform: translate(-50%);
+    min-width: 200px;
+    top: 20vh;
+}

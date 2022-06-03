@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "projects": "node ./projects.js",
     "dev": "webpack serve --config ./src/client/webpack.dev.js",
     "prod": "webpack serve --config ./src/client/webpack.prod.js"
   },
@@ -21,9 +22,12 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.10.2",
     "@alpinejs/persist": "^3.10.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@types/pixi.js": "^5.0.0",
     "@types/three": "^0.139.0",
+    "fs": "^0.0.1-security",
     "pixi.js": "^6.3.0",
+    "showdown": "^2.1.0",
     "three": "^0.139.2",
     "ts-loader": "^9.2.9",
     "typescript": "^4.6.3",
@@ -34,6 +38,7 @@
   },
   "devDependencies": {
     "@types/alpinejs": "^3.7.0",
+    "@types/google.maps": "^3.48.7",
     "alpinejs": "^3.10.2"
   }
 }
