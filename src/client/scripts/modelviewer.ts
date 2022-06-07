@@ -4,9 +4,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader'
-import { Color, Euler, Material, Object3D, Vector3 } from 'three'
+import { Euler} from 'three'
 import { rad } from './math_funcs'
-import { getCenterPoint, getRadius, setPos } from './modelviewer_helperfuncs'
+import { getCenterPoint, getRadius} from './threejs_helpers'
 
 
 //#region LOADER DEFINES
