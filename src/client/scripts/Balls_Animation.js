@@ -16,8 +16,8 @@ const num_balls = 200;
 
 
 let app = new PIXI.Application({
-    width: 768,
-    height: 768,
+    width:1024,
+    height:1024,
     antialias: true,
     backgroundColor: 0x101010,
 });
@@ -88,9 +88,9 @@ window.onresize = function () {
     resize_handler();
 }
 resize_handler();
-setTimeout(() => {
+window.onload = () =>{
     resize_handler();
-}, 1000)
+}
 
 function resize_handler() {
     app.renderer.resize(document.getElementsByClassName("hero")[0].getBoundingClientRect().width, document.getElementsByClassName("hero")[0].getBoundingClientRect().height);
