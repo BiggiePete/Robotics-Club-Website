@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
-        "strict": true
+        "strict": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
     },
     "include": ["./**/*.ts", "scripts/index_load.js", "scripts/Start-Alpine.js", "scripts/Html_Include.js", "scripts/modelviewer_helperfuncs.js"],
     "exclude": [
         ".webpack/**/*",
         ".vscode/**/*"
-       ],
-       "files": ["placeholder.ts"]
+    ],
+    "files": ["placeholder.ts"]
 }

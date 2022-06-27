@@ -1,4 +1,4 @@
-import {ForceLoad} from "./modelviewer"
+import { ForceLoad } from "./modelviewer"
 /**
  * finds the name of the project within the url
  * @returns {string} name of the project, described by the chars following the last '#' in the URL
@@ -6,7 +6,11 @@ import {ForceLoad} from "./modelviewer"
 function determineProject() {
     return window.location.href.slice(window.location.href.lastIndexOf('#') + 1, window.location.href.length);
 }
-
+/**
+ * searches the database of projects for one with the same name as projname
+ * @param projname string name of the project to search the database for 
+ *
+ */
 async function getProjectInfo(projname: string) {
     let database = await (await fetch('./Media/Data/projects.json')).json()
     for (let i = 0; i < database.length; ++i) {
@@ -44,8 +48,8 @@ async function generatePage() {
         let link_name = info.external_links[i].slice(info.external_links[i].indexOf("//") + 2, info.external_links[i].lastIndexOf("."));
         document.getElementById("proj-links")!.innerHTML += "<a class='proj-link' href='" + info.external_links[i] + "'>" + link_name + "</a>"
     }
-    if(info.cad_model_name != "None"){
-        ForceLoad(info.cad_model_name.slice(0,info.cad_model_name.indexOf(".")),info.cad_model_name.slice(info.cad_model_name.indexOf(".")+1),0,0,0)
+    if (info.cad_model_name != "None") {
+        ForceLoad(info.cad_model_name.slice(0, info.cad_model_name.indexOf(".")), info.cad_model_name.slice(info.cad_model_name.indexOf(".") + 1), 0, 0, 0)
     }
 }
 generatePage();
