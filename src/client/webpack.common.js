@@ -10,7 +10,8 @@ module.exports = {
         Experience: './src/client/scripts/experience.ts',
         map: './src/client/scripts/map.ts',
         modelviewer: './src/client/scripts/modelviewer.ts',
-        projecthandler: './src/client/scripts/projecthandler.ts'
+        projecthandler: './src/client/scripts/projecthandler.ts',
+        projects:'./src/client/scripts/projects.js'
     },
     module: {
         rules: [{
