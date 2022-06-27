@@ -67,5 +67,4 @@ canvas {
 
 .projectLink:hover {
     color: var(--Dark-Gold);
-    text-decoration: line-through;
 }
