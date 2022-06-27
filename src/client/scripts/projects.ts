@@ -32,8 +32,7 @@ function addProjectSections(years: Array<Number>) {
                 return p.year;
             }
         });
-        console.log(projectsYear)
-        let fall: [String], spring: [String];
+        let fall = new Array, spring = new Array;
         const fallprojs = projectsYear.filter(p => { // array of projects that occur during year y and during the fall
             if (p.semester.toLowerCase() == "fall") {
                 return p.semester;
@@ -48,7 +47,6 @@ function addProjectSections(years: Array<Number>) {
         if (fallprojs.length != 0) {
             fallprojs.forEach(p => {
                 fall.push(p.name);
-                console.log("Fall " + p.name);
             })
         }
         else {
@@ -57,20 +55,19 @@ function addProjectSections(years: Array<Number>) {
         if (springprojs.length != 0) {
             springprojs.forEach(p => {
                 spring.push(p.name);
-                console.log("Spring " + p.name);
             })
         }
         else {
             nn = 0;
         }
-        return "<div class='column'> <h2>Spring</h2>" + genProjectList(spring!, n) + "</div>" + "<div class='column'> <h2>Fall</h2>" + genProjectList(fall!, nn) + "</div>";
+        return "<div class='column'> <h2>Fall</h2>" + genProjectList(fall) + "</div>" + "<div class='column'> <h2>Spring</h2>" + genProjectList(spring) + "</div>";
 
-        function genProjectList(l: Array<String>, n: Number) {
-            if (n != 0) {
-                let block: String;
+        function genProjectList(l: Array<String>) {
+            if (l.length != 0) {
+                let block = "";
                 l.forEach(projectname => {
-                    console.log(projectname);
-                    block += "<p><a class='projectlink'href='./project.html#" + projectname.replace(/ /g, ''); + "'>" + projectname.toString() + "</a></p>"
+                    block += "<p><a class='projectLink' href='./project.html#" + projectname.replace(/ /g, '') + "'>" + projectname + "</a></p>"
+                    console.log(block);
                 });
                 return block!;
             }
