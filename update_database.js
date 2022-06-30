@@ -28,7 +28,9 @@ async function init() {
     var selection = await drawMenuMain();
     //read in the database for editing
     var database = JSON.parse(fs.readFileSync("./dist/client/Media/Data/projects.json"))
-    while (selection != 4) {
+    var officer_database = JSON.parse(fs.readFileSync("./dist/client/Media/Data/officers.json"))
+    var officer_roles = JSON.parse(fs.readFileSync("./dist/client/Media/Data/roles.json"))
+    while (selection != 5) {
         switch (selection) {
             case 1:
                 await addItem(database);
@@ -39,6 +41,9 @@ async function init() {
             case 3:
                 await removeItem()
                 break;
+            case 4:
+                await changeOfficers(officer_database, officer_roles)
+                break;
             default:
                 console.warn("Not an Option!");
                 selection = await drawMenuMain();
@@ -48,10 +53,58 @@ async function init() {
         selection = await drawMenuMain();
     }
     fs.writeFileSync("./dist/client/Media/Data/projects.json", JSON.stringify(database), 'utf-8')
+    fs.writeFileSync("./dist/client/Media/Data/officers.json", JSON.stringify(officer_database), 'utf-8')
     process.exit();
 }
 
 init();
+
+
+/**
+ * 
+ * @param {[{Name: String,Quote: String,Degree: String,Discord: String,Email: String,Position:String}]}officer_database 
+ * @param {Array<String>} roles 
+ */
+async function changeOfficers(officer_database, roles) {
+    console.log("Below, select which officer you would like to edit")
+    var selection = await drawOfficerMenu(roles);
+    while (selection != 6) {
+        if (selection > roles.length || selection < 0) {
+            console.warn("Invalid Choice");
+        } else {
+            break;
+        }
+        selection = await drawOfficerMenu(roles);
+    }
+    //refine the selection to the officer position
+    officer_type = roles[selection]; // String
+    console.log()
+    console.log("Fill in the " + officer_type + "'s information below!");
+    const officer = {
+        name: await getInput("Name of the Officer : "),
+        Position: officer_type,
+        Degree: await getInput("Degree the Officer is persuing : "),
+        Quote: await getInput("Quote from the Officer : "),
+        Discord: await getInput("Discord Name and #XXXX : "),
+        Email: await getInput("Email to contact the Officer from : "),
+    }
+    let edit = officer_database.find((o) => {
+        if (o.Position = officer.Position) {
+            console.log("Officer Found! Making Changes . . .")
+            return true;
+        }
+    });
+    if (!edit) {
+        console.warn("No Officer Found! Adding Anyway, please refer to officers.json if this was incorrect!");
+        officer_database.push(officer);
+    } else {
+        officer_database[officer_database.findIndex((o) => {
+            if (o.Position = officer.Position) {
+                return true;
+            }
+        })] = officer;
+    }
+}
 
 
 async function addItem(database) {
@@ -65,7 +118,7 @@ async function addItem(database) {
         team_leads: await getMultiInput("Team Lead Name : ", await getNInput("Number of team leads that ran the project : ")),
         image_urls: await getMultiInput("Link to Image : ", await getNInput("Number of images to attach : ")),
         cad_model_name: await getInput("Name of CAD Model (if none, type 'None'): "),
-        external_links: await getMultiInput("External Link to other docuements : ",await getNInput("Number of Links to add : ")),
+        external_links: await getMultiInput("External Link to other docuements : ", await getNInput("Number of Links to add : ")),
         custom_html: await getInput("Custom HTML : "),
     }
     database.push(newproject);
@@ -107,7 +160,7 @@ async function getInput(q) {
 }
 /**
  * 
-* @param {String} q quesry string to disply to the user
+ * @param {String} q quesry string to disply to the user
  * @param {Number} n number of queries
  * @returns array of responses
  */
@@ -131,7 +184,26 @@ async function drawMenuMain() {
     console.log("1 : Add Item");
     console.log("2 : Remove Item");
     console.log("3 : Edit Item");
-    console.log("4 : Write & Quit");
+    console.log("4 : Edit Officer Database");
+    console.log("5 : Write & Quit");
+    try {
+        const answer = await question('Selection : ');
+        return parseInt(answer);
+    } catch (err) {
+        console.error('Question rejected', err);
+    }
+}
+/**
+ * 
+ * @param {Array<String>} officer_roles Array containing all the availiable roles
+ */
+async function drawOfficerMenu(officer_roles) {
+    console.log()
+    for (let i = 0; i < officer_roles.length; i++) {
+        console.log(i + " - " + officer_roles[i]);
+    }
+    console.log()
+    console.log(officer_roles.length + " -  Back");
     try {
         const answer = await question('Selection : ');
         return parseInt(answer);

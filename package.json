@@ -4,7 +4,7 @@
   "description": "A repository for the various components of the Robotics Club of Central Florida website: https://robotics.ucf.edu/",
   "main": "index.js",
   "scripts": {
-    "projects": "node ./projects.js",
+    "update_data": "node ./update_database.js",
     "dev": "webpack serve --config ./src/client/webpack.dev.js",
     "prod": "webpack serve --config ./src/client/webpack.prod.js"
   },

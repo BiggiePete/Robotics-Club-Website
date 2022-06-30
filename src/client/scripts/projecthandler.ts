@@ -51,5 +51,6 @@ async function generatePage() {
     if (info.cad_model_name != "None") {
         ForceLoad(info.cad_model_name.slice(0, info.cad_model_name.indexOf(".")), info.cad_model_name.slice(info.cad_model_name.indexOf(".") + 1), 0, 0, 0)
     }
+    document.getElementById("page-header")!.innerHTML += info.name + "  " + info.description
 }
 generatePage();
