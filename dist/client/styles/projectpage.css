@@ -1,7 +1,8 @@
 @import './general_Styles.css';
 
 .team-leads {
-    color: var(--Dark-Gold);
+    color: var(--Light-Gold);
+    font-family: var(--Montserrat);
 }
 
 h1 {
