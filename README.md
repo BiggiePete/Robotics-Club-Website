@@ -13,6 +13,19 @@ A repository for the various components of the Robotics Club of Central Florida 
 
     This section reguards all information needed to maintain the site and databases found within it, more specifically, this revolves round running the console command "npm run update_data"
 
+    Make sure to always close the application by selecting "Write & Quit", otherwise your changes WILL NOT BE SAVED
+
+### Maintaining sponsors
+
+#### Adding Sponsors
+
+    After the command is run, press 5, bringing you to the sponsor sub-utility
+    from here feel free to follow the prompts for adding, removing ,and listing the current sponsors, and once the list of sponsors is as desired, feel free to return to the main screen, where selecting "Write & Quit" will write out all database changes to all databases.
+
+#### Adding Sponsor Images
+
+    To add an image for a sponsor, navigate to "/dist/client/Media/Images/Sponsors/" and add the sponsor's image, but make sure to rename it to be EXACTLY the same as found in sponsors.json (which is the same case and all that it was entered in the update script)
+
 ### Maintaining officers
 
     After the command is run, press 4, bringing you to the portion of the interface reguarding adding and updating officers using the utility, follow instructions and the prompts, and any of the following roles can be changed :

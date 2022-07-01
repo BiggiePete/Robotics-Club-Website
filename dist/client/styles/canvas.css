@@ -3,6 +3,6 @@ canvas {
     position: absolute;
     top: 60px;
     left: 0;
-    min-height: 100vh;
+    max-height: 100vh;
     width: 100%;
 }

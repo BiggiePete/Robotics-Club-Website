@@ -1,5 +1,4 @@
 import projects from '../../../dist/client/Media/Data/projects.json'
-//import projects from './Media/Data/projects.json'
 function generatePage() {
     let years: Array<Number> = []
 

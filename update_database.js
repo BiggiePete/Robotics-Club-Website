@@ -30,7 +30,8 @@ async function init() {
     var database = JSON.parse(fs.readFileSync("./dist/client/Media/Data/projects.json"))
     var officer_database = JSON.parse(fs.readFileSync("./dist/client/Media/Data/officers.json"))
     var officer_roles = JSON.parse(fs.readFileSync("./dist/client/Media/Data/roles.json"))
-    while (selection != 5) {
+    var sponsors = JSON.parse(fs.readFileSync("./dist/client/Media/Data/sponsors.json"))
+    while (selection != 6) {
         switch (selection) {
             case 1:
                 await addItem(database);
@@ -44,6 +45,8 @@ async function init() {
             case 4:
                 await changeOfficers(officer_database, officer_roles)
                 break;
+            case 5:
+                await editSponsors(sponsors)
             default:
                 console.warn("Not an Option!");
                 selection = await drawMenuMain();
@@ -54,11 +57,86 @@ async function init() {
     }
     fs.writeFileSync("./dist/client/Media/Data/projects.json", JSON.stringify(database), 'utf-8')
     fs.writeFileSync("./dist/client/Media/Data/officers.json", JSON.stringify(officer_database), 'utf-8')
+    fs.writeFileSync("./dist/client/Media/Data/sponsors.json", JSON.stringify(sponsors), 'utf-8')
     process.exit();
 }
 
 init();
 
+
+
+async function editSponsors(sponsors) {
+    //offer 3 selections, add, remove, quit
+    //add will ask for the name of the sponsor, and thats it
+    //remove will list all sponsors, and ask which one to remove
+    var selection = await drawSponsorMenu()
+    while (selection != 4) {
+        switch (selection) {
+            case 1:
+                await addSponsor(sponsors);
+                break;
+            case 2:
+                await removeSponsor(sponsors);
+                break;
+            case 3:
+                await listSponsors(sponsors);
+                break;
+            case 4:
+                return;
+                break;
+            default:
+                console.warn("Invalid Option!");
+                selection = drawSponsorMenu();
+                break;
+        }
+        selection = await drawSponsorMenu()
+    }
+}
+
+/**
+ * 
+ * @param {Array<String>} sponsors 
+ */
+async function listSponsors(sponsors) {
+    console.log("List of Current Sponsors :");
+    sponsors.forEach((s) => {
+        console.log(s);
+    })
+}
+
+
+/**
+ * 
+ * @param {Array<String>} sponsors 
+ */
+async function addSponsor(sponsors) {
+    //since the array is already parsed, we can just push the new name of the sponsor
+    sponsors.push(await getInput("Enter name of Sponsor : "));
+    console.log("Success!")
+}
+
+/**
+ * 
+ * @param {Array<String>} sponsors 
+ */
+async function removeSponsor(sponsors) {
+    console.log()
+    console.log("List of Current Sponsors : ");
+    for (let i = 0; i < sponsors.length; i++) {
+        console.log(i + " - " + sponsors[i]);
+    }
+    console.log();
+    var selection = await getNInput("ID of sponsor to remove : ");
+    while (selection < 0 || selection >= sponsors.length) {
+        console.warn("Not a Sponsor ID");
+        var selection = await getNInput("ID of sponsor to remove : ");
+    }
+    sponsors[selection] = "";
+    sponsors.sort();
+    sponsors.reverse();
+    sponsors.pop();
+    sponsors.reverse();
+}
 
 /**
  * 
@@ -68,7 +146,7 @@ init();
 async function changeOfficers(officer_database, roles) {
     console.log("Below, select which officer you would like to edit")
     var selection = await drawOfficerMenu(roles);
-    while (selection != 6) {
+    while (selection != roles.length) {
         if (selection > roles.length || selection < 0) {
             console.warn("Invalid Choice");
         } else {
@@ -185,7 +263,8 @@ async function drawMenuMain() {
     console.log("2 : Remove Item");
     console.log("3 : Edit Item");
     console.log("4 : Edit Officer Database");
-    console.log("5 : Write & Quit");
+    console.log("5 : Edit Sponsors Database")
+    console.log("6 : Write & Quit");
     try {
         const answer = await question('Selection : ');
         return parseInt(answer);
@@ -204,6 +283,20 @@ async function drawOfficerMenu(officer_roles) {
     }
     console.log()
     console.log(officer_roles.length + " -  Back");
+    try {
+        const answer = await question('Selection : ');
+        return parseInt(answer);
+    } catch (err) {
+        console.error('Question rejected', err);
+    }
+}
+
+async function drawSponsorMenu() {
+    console.log();
+    console.log("1 - Add");
+    console.log("2 - Remove");
+    console.log("3 - List")
+    console.log("4 - Return");
     try {
         const answer = await question('Selection : ');
         return parseInt(answer);

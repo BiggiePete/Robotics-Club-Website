@@ -12,7 +12,8 @@ module.exports = {
         modelviewer: './src/client/scripts/modelviewer.ts',
         projecthandler: './src/client/scripts/projecthandler.ts',
         projects:'./src/client/scripts/projects.ts',
-        officers: './src/client/scripts/officers.ts'
+        officers: './src/client/scripts/officers.ts',
+        sponsors: './src/client/scripts/sponsors.ts',
     },
     module: {
         rules: [{

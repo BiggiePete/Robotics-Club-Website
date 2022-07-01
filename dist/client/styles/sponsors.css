@@ -1,4 +1,15 @@
 @import './general_Styles.css';
 
 
+.sponsorship-images{
+    margin-top: 5vh;
+    display: flex
+}
+.sponsorship-images img {
+    max-width: 512px;
+    max-height: 512px;
+    min-width: 128px;
+    min-height: 128px;
+    border-radius: 12px;
 
+}
