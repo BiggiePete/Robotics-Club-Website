@@ -1,1 +1,21 @@
-[{"name":"Bipedal","year":2022,"semester":"Spring","description":"Construct a bipedal walker (2 legs) that is capable of walking short distances with minimal assistance","team_leads":["Peter Cross","Logan Owens"],"image_urls":["bipedal_img.jpg"],"cad_model_name":"BipedAssembly.fbx","external_links":["https://github.com/RoboticsClubatUCF/Bipedal-BODS"],"custom_html":""},{"name":"Alternative Mobility","year":2022,"semester":"Spring","description":"An internal competition project created to have memebers create robots, of which would be judged based on their creativeness to move, the winner of this project (Shown in image) was this semester's winner!","team_leads":["Kate Majewski"],"image_urls":["AltMobWinner.jpg"],"cad_model_name":"None","external_links":["https://photos.app.goo.gl/FUrTWJyz1ke6zpC37"],"custom_html":""}]
+[{
+    "name": "Bipedal",
+    "year": 2022,
+    "semester": "Spring",
+    "description": "Construct a bipedal walker (2 legs) that is capable of walking short distances with minimal assistance",
+    "team_leads": ["Peter Cross", "Logan Owens"],
+    "image_urls": ["bipedal_img.jpg"],
+    "cad_model_name": "BipedAssembly.fbx",
+    "external_links": ["https://github.com/RoboticsClubatUCF/Bipedal-BODS"],
+    "custom_html": ""
+}, {
+    "name": "Alternative Mobility",
+    "year": 2022,
+    "semester": "Spring",
+    "description": "An internal competition project created to have memebers create robots, of which would be judged based on their creativeness to move, the winner of this project (Shown in image) was this semester's winner!",
+    "team_leads": ["Kate Majewski"],
+    "image_urls": ["AltMobWinner.jpg"],
+    "cad_model_name": "None",
+    "external_links": ["https://photos.app.goo.gl/FUrTWJyz1ke6zpC37"],
+    "custom_html": ""
+}]
