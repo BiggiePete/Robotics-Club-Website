@@ -11,7 +11,8 @@ module.exports = {
         map: './src/client/scripts/map.ts',
         modelviewer: './src/client/scripts/modelviewer.ts',
         projecthandler: './src/client/scripts/projecthandler.ts',
-        projects:'./src/client/scripts/projects.ts'
+        projects:'./src/client/scripts/projects.ts',
+        officers: './src/client/scripts/officers.ts'
     },
     module: {
         rules: [{
