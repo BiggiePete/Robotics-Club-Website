@@ -7,8 +7,8 @@ function generatePage() {
 function officerHtmlStringGen() {
     var containers = "";
     for (let i = 0; i < officer_roles.length; i++) {
-        const left_offset = i % 2 ? "-80%" : "-20%";
-        const margin_top = 100 + (800 * i);
+        const left_offset = i % 2 ? "-90%" : "-10%";
+        const margin_top = 100 + (850 * i);
         var string = "<div class='container' style='transform: translateX(" + left_offset + ");margin-top: " + margin_top + "px;'> <section class='Officer-info'>";
         string += "<h1 class='officer-name'>" + officers[i].name + "</h1>";
         string += "<h2 class='position'>" + officers[i].Position + "</h2>";

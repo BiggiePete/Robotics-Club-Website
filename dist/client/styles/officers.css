@@ -19,6 +19,61 @@ body {
     color: var(--Light-Gold);
 }
 
+.scroll-down-arrow {
+    position: absolute;
+    left: 40px;
+    top: 1600px;
+    height: 10vh;
+    width: 8vw;
+    color: var(--Light-Gold);
+    animation: float_up_down 3s ease-in-out infinite;
+}
+
+.scroll-down-arrow2 {
+    position: absolute;
+    left: 40px;
+    top: 1700px;
+    height: 10vh;
+    width: 8vw;
+    color: var(--Light-Gold);
+    animation: float_up_down 3s ease-in-out infinite;
+}
+
+.scroll-down-arrow3 {
+    position: absolute;
+    left: 40px;
+    top: 1800px;
+    height: 10vh;
+    width: 8vw;
+    color: var(--Light-Gold);
+    animation: float_up_down 3s ease-in-out infinite;
+}
+
+.scroll-down-arrow4 {
+    position: absolute;
+    left: 40px;
+    top: 1900px;
+    height: 10vh;
+    width: 8vw;
+    color: var(--Light-Gold);
+    animation: float_up_down 3s ease-in-out infinite;
+}
+
+@keyframes float_up_down {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
 .Officer-info h1 {
     font-size: 3em;
 }
