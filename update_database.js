@@ -89,7 +89,7 @@ async function changeOfficers(officer_database, roles) {
         Email: await getInput("Email to contact the Officer from : "),
     }
     let edit = officer_database.find((o) => {
-        if (o.Position = officer.Position) {
+        if (o.Position == officer.Position) {
             console.log("Officer Found! Making Changes . . .")
             return true;
         }
@@ -99,7 +99,7 @@ async function changeOfficers(officer_database, roles) {
         officer_database.push(officer);
     } else {
         officer_database[officer_database.findIndex((o) => {
-            if (o.Position = officer.Position) {
+            if (o.Position == officer.Position) {
                 return true;
             }
         })] = officer;
