@@ -82,6 +82,14 @@ a:active {
     background: var(--Dark-Black);
 }
 
+.nav__title img {
+    display: inline-flex;
+    max-width: 64px;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 10px;
+}
+
 .subnav {
     position: sticky;
     bottom: 0;

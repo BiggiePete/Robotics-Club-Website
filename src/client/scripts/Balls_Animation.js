@@ -16,8 +16,8 @@ const num_balls = 200;
 
 
 let app = new PIXI.Application({
-    width:1024,
-    height:1024,
+    width: 1024,
+    height: 1024,
     antialias: true,
     backgroundColor: 0x101010,
 });
@@ -88,7 +88,7 @@ window.onresize = function () {
     resize_handler();
 }
 resize_handler();
-window.onload = () =>{
+window.onload = () => {
     resize_handler();
 }
 
@@ -120,7 +120,17 @@ let graphics = new PIXI.Graphics();
 let line = new PIXI.Graphics();
 let glowgrafx = new PIXI.Graphics();
 var k = 0;
+
+// const logo = PIXI.Sprite.from("./Media/Images/roboskull-white.png")
+
+// logo.anchor.set(0.5);
+// logo.x = app.screen.width / 2;
+// logo.y = app.screen.height / 2;
+// app.stage.addChild(logo);
+
 app.ticker.add((delta) => {
+    // logo.x = app.screen.width / 2;
+    // logo.y = app.screen.height / 4.5;
     glowgrafx.clear();
     graphics.clear();
     line.clear();
