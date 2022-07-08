@@ -213,14 +213,9 @@ function ClickHandler() { //
     cy = Math.floor(mousePos.y);
     if (num_clicks == 2 && cx == px && cy == py) {
         num_clicks = 0;
-        //DoubleClickHandler();
     } else if (num_clicks > 2) {
         num_clicks = 0;
     }
-}
-
-function DoubleClickHandler() { // fires whenever the user double clicks on the page
-    // new idea, when the user double clicks, all of the balls float a little toward the cursor
 }
 
 
