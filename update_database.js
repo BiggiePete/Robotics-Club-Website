@@ -31,7 +31,7 @@ async function init() {
     var officer_database = JSON.parse(fs.readFileSync("./dist/client/Media/Data/officers.json"))
     var officer_roles = JSON.parse(fs.readFileSync("./dist/client/Media/Data/roles.json"))
     var sponsors = JSON.parse(fs.readFileSync("./dist/client/Media/Data/sponsors.json"))
-    while (selection != 6) {
+    while (selection != 4) {
         switch (selection) {
             case 1:
                 await changeProjects(database);
@@ -50,13 +50,11 @@ async function init() {
         }
         selection = await drawMenuMain();
     }
-    writeData(database, officer_database, sponsors).then(() => {
-        console.log("All done!")
-    })
+    writeData(database, officer_database, sponsors)
     process.exit();
 }
 
-async function writeData(projects_data, officers_data, sponsors_data) {
+function writeData(projects_data, officers_data, sponsors_data) {
     fs.writeFileSync("./dist/client/Media/Data/projects.json", JSON.stringify(projects_data), 'utf-8')
     fs.writeFileSync("./dist/client/Media/Data/officers.json", JSON.stringify(officers_data), 'utf-8')
     fs.writeFileSync("./dist/client/Media/Data/sponsors.json", JSON.stringify(sponsors_data), 'utf-8')
