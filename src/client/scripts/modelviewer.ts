@@ -84,7 +84,7 @@ export function ForceLoad(a: any, b: any, c: any, d: any, e: any) {
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(BackgroundColor);
 const canvas = undefined
-const camera = new THREE.PerspectiveCamera(CameraFOV, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(CameraFOV, window.innerWidth / window.innerHeight, 0.1, 5000);
 const clock = new THREE.Clock();
 const renderer = new THREE.WebGLRenderer({
     antialias: decideAA(),
