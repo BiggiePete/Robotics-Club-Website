@@ -34,19 +34,14 @@ async function init() {
     while (selection != 6) {
         switch (selection) {
             case 1:
-                await addItem(database);
+                await changeProjects(database);
                 break;
             case 2:
-                await editItem()
-                break;
-            case 3:
-                await removeItem()
-                break;
-            case 4:
                 await changeOfficers(officer_database, officer_roles)
                 break;
-            case 5:
+            case 3:
                 await editSponsors(sponsors)
+                break;
             default:
                 console.warn("Not an Option!");
                 selection = await drawMenuMain();
@@ -55,15 +50,57 @@ async function init() {
         }
         selection = await drawMenuMain();
     }
-    fs.writeFileSync("./dist/client/Media/Data/projects.json", JSON.stringify(database), 'utf-8')
-    fs.writeFileSync("./dist/client/Media/Data/officers.json", JSON.stringify(officer_database), 'utf-8')
-    fs.writeFileSync("./dist/client/Media/Data/sponsors.json", JSON.stringify(sponsors), 'utf-8')
+    writeData(database, officer_database, sponsors).then(() => {
+        console.log("All done!")
+    })
     process.exit();
 }
 
+async function writeData(projects_data, officers_data, sponsors_data) {
+    fs.writeFileSync("./dist/client/Media/Data/projects.json", JSON.stringify(projects_data), 'utf-8')
+    fs.writeFileSync("./dist/client/Media/Data/officers.json", JSON.stringify(officers_data), 'utf-8')
+    fs.writeFileSync("./dist/client/Media/Data/sponsors.json", JSON.stringify(sponsors_data), 'utf-8')
+}
+
+
 init();
 
+async function changeProjects(database) {
+    var selection = await drawProjectMenu()
 
+    while (selection != 4) {
+        switch (selection) {
+            case 1:
+                await addItem(database);
+                break;
+            case 2:
+                await removeItem(database);
+                break;
+            case 3:
+                await removeItem(database)
+                break;
+            default:
+                console.warn("Invalid Option!");
+                selection = drawProjectMenu();
+                break;
+        }
+        selection = await drawMenuMain()
+    }
+}
+
+async function drawProjectMenu() {
+    console.log()
+    console.log("1 - Add Project")
+    console.log("2 - Remove Project")
+    console.log("3 - List Projects")
+    console.log("4 - Return")
+    try {
+        const answer = await question('Selection : ');
+        return parseInt(answer);
+    } catch (err) {
+        console.error('Question rejected', err);
+    }
+}
 
 async function editSponsors(sponsors) {
     //offer 3 selections, add, remove, quit
@@ -80,9 +117,6 @@ async function editSponsors(sponsors) {
                 break;
             case 3:
                 await listSponsors(sponsors);
-                break;
-            case 4:
-                return;
                 break;
             default:
                 console.warn("Invalid Option!");
@@ -191,7 +225,7 @@ async function addItem(database) {
     const newproject = {
         name: await getInput("Name of the Project : "),
         year: await getNInput("Year the project ran : "),
-        semester: await getInput("Semester the project ran (Summer/Fall/Spring) : "),
+        semester: await getInput("Semester the project ran (Fall/Spring) : "),
         description: await getInput("Description of the project, think of what got done, and what the goals were : "),
         team_leads: await getMultiInput("Team Lead Name : ", await getNInput("Number of team leads that ran the project : ")),
         image_urls: await getMultiInput("Link to Image : ", await getNInput("Number of images to attach : ")),
@@ -259,12 +293,10 @@ async function drawMenuMain() {
     console.log("Welcome to the RCCF project Database Manager!")
     console.log("Make a selection below :\n")
 
-    console.log("1 : Add Item");
-    console.log("2 : Remove Item");
-    console.log("3 : Edit Item");
-    console.log("4 : Edit Officer Database");
-    console.log("5 : Edit Sponsors Database")
-    console.log("6 : Write & Quit");
+    console.log("1 : Edit Project Database");
+    console.log("2 : Edit Officer Database");
+    console.log("3 : Edit Sponsors Database")
+    console.log("4 : Write & Quit");
     try {
         const answer = await question('Selection : ');
         return parseInt(answer);
