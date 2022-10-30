@@ -35,11 +35,12 @@ async function generatePage() {
     }
     document.getElementById("proj-description")!.innerHTML = info!.description;
     for (let i = 0; i < info!.image_urls.length; i++) {
-        if (info!.image_urls[i].indexOf("://")) {
-            document.getElementById("proj-images")!.innerHTML += "<img src='" + "./Media/Images/" + info!.image_urls[i] + "' alt=''>";
+        console.log(info!.image_urls[i])
+        if (info!.image_urls[i].indexOf("://") > 1) {
+            document.getElementById("proj-images")!.innerHTML += "<img src='" + info!.image_urls[i] + "' alt=''>";
         }
         else {
-            document.getElementById("proj-images")!.innerHTML += "<img src='" + info!.image_urls[i] + "' alt=''>";
+            document.getElementById("proj-images")!.innerHTML += "<img src='" + "./Media/Images/" + info!.image_urls[i] + "' alt=''>";
         }
     }
     document.getElementById("proj-links")!.innerHTML = "";
