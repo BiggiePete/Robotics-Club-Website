@@ -41,7 +41,7 @@
         </AccordionItem>
         <AccordionItem>
             <svelte:fragment slot="summary"><strong>How do sponsorships work?</strong></svelte:fragment>
-            <svelte:fragment slot="content">If you would like to sponsor us check out what we offer in our <a href="/sponsor" style="color: blue; text-decoration: underline;">sponsors’ page</a>, otherwise it’s basically a way to financially support RCCF and its mission.</svelte:fragment>
+            <svelte:fragment slot="content">If you would like to sponsor us check out what we offer in our <a href="/sponsors" style="color: blue; text-decoration: underline;">sponsors’ page</a>, otherwise it’s basically a way to financially support RCCF and its mission.</svelte:fragment>
         </AccordionItem>
         <!-- more questions -->
     </Accordion>
