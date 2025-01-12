@@ -33,7 +33,7 @@
         </AccordionItem>
         <AccordionItem>
             <svelte:fragment slot="summary"><strong>Where is the lab located?</strong></svelte:fragment>
-            <svelte:fragment slot="content">We are located in UCF’s Institute For Simulation & Training at <a href="https://maps.app.goo.gl/rzwvL5BvsXfBURs96" target="_blank" style="color: blue; text-decoration: underline;">3100 Technology Pkwy, Orlando, FL 32826</a>. If you have trouble finding us you can find an aerial map guide <a href="https://photos.app.goo.gl/QNiuUQVKTHywd94x8" target="_blank" style="color: blue; text-decoration: underline;">Here</a>.</svelte:fragment>
+            <svelte:fragment slot="content">We are located in UCF’s Institute For Simulation & Training at <a href="https://maps.app.goo.gl/rzwvL5BvsXfBURs96" target="_blank" style="color: blue; text-decoration: underline;">3100 Technology Pkwy, Orlando, FL 32826</a>. If you have trouble getting in you can find an aerial map guide <a href="https://lh3.googleusercontent.com/pw/AP1GczMndj7-ZhX2CdDndMSGVFOrRJVwvq9_AcnH1ZX474rDzDvU-CkYoMvG-9HDrqodn_NFkwVsr_PwVrtM9BwTZ37aHyqr4wXqKYki0vIAhbyBh0Y7Tn4TDm1MS6dMgME1zX5EhhhbcnPCO0lwzUAPVT0=w955-h906-s-no-gm?authuser=0" target="_blank" style="color: blue; text-decoration: underline;">Here</a>.</svelte:fragment>
         </AccordionItem>
         <AccordionItem>
             <svelte:fragment slot="summary"><strong>How do I join a project?</strong></svelte:fragment>

@@ -3,7 +3,7 @@
   import Image from 'svimg';
 </script>
 
-<div class="card card-hover overflow-hidden">
+<div class="card overflow-hidden">
   <Image
     src="/photos/competition.png"
     class="bg-black/50 w-full aspect-[21/9] object-cover object-bottom"

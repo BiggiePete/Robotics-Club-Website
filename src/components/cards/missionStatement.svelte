@@ -3,7 +3,7 @@
   import Image from 'svimg';
 </script>
 
-<a class="card card-hover overflow-hidden" href="/#mission">
+<div class="card overflow-hidden">
   <Image
     src="/photos/mission_statement.png"
     class="bg-black/50 w-full aspect-[21/9] object-cover"
@@ -19,4 +19,4 @@
   </div>
   <hr class="opacity-50" />
   <footer class="card-footer mt-2">Est 1972</footer>
-</a>
+</div>

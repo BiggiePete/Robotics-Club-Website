@@ -10,7 +10,7 @@ export default {
   information: {
     slogan: 'Building our future overlords, one project at a time.',
     outreach: {
-      hero: 'Breaking down barriers'
+      hero: 'Breaking Down Barriers'
     },
     missionStatement:
       'The Robotics Club of Central Florida (RCCF) aims to involve students in the field of robotics and further both ourselves and the field of robotics through challenging and innovative projects. RCCF is not only a club where you go to learn about robotics but also a place to gain invaluable opportunities and skills. Anyone is welcomed so come and be a part of the club!',
