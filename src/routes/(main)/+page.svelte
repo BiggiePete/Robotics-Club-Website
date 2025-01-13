@@ -66,7 +66,7 @@
       <div class="h-10 w-10"><FaInstagram /></div>
       <span>Instagram (Club)</span>
     </a>
-    <a class="logo-item" href="https://instagram.com/ucf.tapemeasure/">
+    <a class="logo-item" href="https://www.instagram.com/rccf.tapemeasure/">
       <div class="h-10 w-10"><FaInstagram /></div>
       <span>Instagram (Tapemeasure)</span>
     </a>

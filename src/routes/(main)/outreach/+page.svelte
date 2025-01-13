@@ -92,6 +92,7 @@
     <div class="mt-6 justify-center flex">
       <h1 class="h2">Host Us!</h1>
     </div>
+    <br />
     <div class="flex-1">
       <p class="text-lg text-center">
         If you'd like to invite us to an event or school, please contact our outreach committee through 
@@ -100,4 +101,6 @@
       </p>
     </div>
   </div>
+  <br />
+  <br />
 </div>

@@ -43,7 +43,8 @@ export const load: PageServerLoad = async ({ locals }) => {
           }
         }
       },
-      Survey: true  // Include the survey information
+      Survey: true,  // Include the survey information
+      role: true,
     }
   });
 

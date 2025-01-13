@@ -160,10 +160,28 @@
             {/if}
           </div>
         </div>
-        {#if !((data.user?.membershipExpDate.getTime() ?? 0) < new Date().getTime())}
-          <br />
-        {/if}
+
         {#if (data.user?.membershipExpDate.getTime() ?? 0) > new Date().getTime()}
+          <br/>
+          {#if data.user?.role.permissionLevel > 4}
+          <div class={$modeCurrent ? 'block card p-8 pointer-events-auto shadow-m shadow-surface-300 justify-center' : 'block card p-8 pointer-events-auto shadow-m shadow-surface-500 justify-center'}>
+            <div class="p-2 rounded-md">
+              <h2 class="h2">
+                {data.user?.role?.name?.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Dashboard
+              </h2>
+                  <!-- Get to set project leads-->
+                {#if data.user?.role.permissionLevel >= 10}
+                <br>
+                <h6 class="h5">
+                  Configure Projects
+                </h6>
+                <a href="/dashboard/create-project" class="btn variant-ghost-tertiary hover:variant-filled-tertiary">Create Project</a>
+                {/if}
+            </div>
+          </div>
+
+          {/if}
+
           <Feed />
         {/if}
       </div>
