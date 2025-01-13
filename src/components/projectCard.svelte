@@ -20,12 +20,12 @@
       {#if project.logo.isLocal}
         <!-- load the image using the b64 method -->
       {:else}
-        <div class="absolute m-5 p-2 h3 rounded-lg variant-filled-surface">{project.title}</div>
-        <img
-          class="h-72 w-full rounded-lg object-cover overflow-hidden"
-          src={project.logo.data}
-          alt=""
-        />
+      <div class="absolute m-5 p-2 h3 rounded-lg variant-filled-surface">{project.title}</div>
+      <img
+        class="h-72 w-full rounded-lg object-contain overflow-hidden"
+        src={project.logo.data}
+        alt=""
+      />
       {/if}
     {:else}
       <!-- if hovering, display the goods -->

@@ -83,6 +83,7 @@ export const actions: Actions = {
                 logo: {
                     create: {
                         data: form.data.logo,
+                        isLocal: false,
                     }
                 },
                 docsLink: form.data.docsLink,
