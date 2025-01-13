@@ -20,7 +20,7 @@
   bind:this={mainEle}
   class="absolute top-20 left-0 right-0 bottom-0 pointer-events-auto -z-20"
 />
-<div class="h-screen grid place-items-center absolute w-screen top-0 pointer-events-none">
+<div class="h-screen grid place-items-center absolute w-screen top-0 pointer-events-none" style="margin-top: 130px; padding-bottom: 130px;">
   <div
     class={$modeCurrent
       ? 'block card p-8 pointer-events-auto shadow-xl shadow-surface-300'
@@ -41,6 +41,22 @@
         />
         {#if $errors.fname}
           <span class="variant-filled-error badge">{$errors.fname}</span>
+        {/if}
+      </label>
+      <br />
+      <label class="label">
+        <span>Last Name</span>
+        <input
+          class="input"
+          type="text"
+          name="lname"
+          id="lname"
+          bind:value={$form.lname}
+          {...$constraints}
+          required
+        />
+        {#if $errors.lname}
+          <span class="variant-filled-error badge">{$errors.lname}</span>
         {/if}
       </label>
       <br />
@@ -90,6 +106,9 @@
           autocomplete="password"
         />
       </label>
+      {#if $errors.password}
+        <span class="variant-filled-error badge">{$errors.password}</span>
+      {/if}
       <br />
       <label class="label">
         <span>Confirm Password</span>
@@ -103,9 +122,10 @@
           required
         />
       </label>
-      {#if $errors.password || $errors.confirmPassword}
-        <span class="variant-filled-error badge">Passwords do not match!</span>
+      {#if $errors.confirmPassword}
+        <span class="variant-filled-error badge">{$errors.confirmPassword}</span>
       {/if}
+      <br />
       <button class="btn variant-ghost-primary mt-4 hover:variant-filled-primary">Sign Up</button>
     </form>
   </div>

@@ -3,14 +3,14 @@
   import Image from 'svimg';
 </script>
 
-<div class="card card-hover overflow-hidden">
+<div class="card overflow-hidden">
   <Image
     src="/photos/competition.png"
     class="bg-black/50 w-full aspect-[21/9] object-cover object-bottom"
     alt="Post"
   />
   <div class="p-4 space-y-4">
-    <h6 class="h6">Competition</h6>
+    <h6 class="h4">Competition</h6>
     <article>
       <p>
         {config.information.competitionStatement}

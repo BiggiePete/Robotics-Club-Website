@@ -1,40 +1,79 @@
+
 # Robotics Club Website & Server
 
-## How to run
+A backup and clone of the Robotics Club of Central Florida (RCCF) club website. You can go to our website [here](https://rccf.club/). As this git repo is serving as a backup and commit site more documentation and samples can be found [here](https://secretlibrary.rccf.club/shelves/rccf-website). For more general information or how to join the RCCF web team DM the web team lead on the RCCF [discord](https://discord.gg/Dpe7gjESmy).
 
-    requirements:
-        docker & docker compose
-        or docker desktop
-        nodejs >=19
-    npm i
-    npm run build # This will take a while
-    docker compose up -d
-    change env file to push to localhost for the postgres
-    npx prisma migrade dev --name RCCF
 
-    profit
+## Requirements
+- Nodejs >=19
+Nodejs install can be found [here](https://nodejs.org/en/download/).
+- Docker
+On Windows use docker desktop found [here](https://www.docker.com/products/docker-desktop/).
 
-    in all you should have a docker container running postgres running, and another terminal running the svelte server + client, everyting will update as you develop, or evaluate it
+On Linux lazy docker is recommended and can be found [here](https://github.com/jesseduffield/lazydocker).
+## Installation
 
-## migrate db
+Most of the project is installed using npm, this should be installed alongside Nodejs. Before following the commands below make sure your within the installed directory. In all you should have a docker container running postgres running, and another terminal running the svelte server + client, everything will update as you develop, or evaluate it
 
-    this command will migrate all changes automatically
-    npx prisma migrate dev --name RCCF
 
-# TODO
+To install Nodejs packages and dependencies from a package.json file use:
 
-add project pages - if teamlead, add ability to make post - if teamlead, add ability to edit project info
-add about page
-add sponsors page
-add members list
-add officers list
+```bash
+npm i
+```
+Starts the docker based postgres database.
+```bash
+docker compose up -d
+```
+Improve RUN performance by pre-loading jigs (may fail on windows but not a requirement).
+```bash
+npm run db
+```
+Generates a prisma client for testing.
+```bash
+npx prisma generate
+```
+Creates a draft migration that can be edited live before being applied to the database. 
+```bash
+npx prisma migrate dev --name RCCF
+```
+Starts a dev environment for you to see changes being made by you live.
+```bash
+npm run dev
+```
+To access the Prisma database use
+```bash
+npm run studio
+```
+## To-Do
+- [x] Update Home Page
+    - [x] Update Cards
+    - [x] FAQ section
+- [ ] Sponsors page
+    - [ ] Tier List
+- [ ] Anonymous submission/reporting system
+    - [ ] Discord bot integration
+- [ ] Gallery Page 
+- [ ] Member’s Page
+- [ ] News Letter/Blog Page
+- [x] Summer Term Button (free trial)
+- [ ] QR Code Tracker System
+- [ ] Fading Projects Blocks
+- [x] Github Link/Icon
+- [ ] Edit profile as a separate button
+- [x] Member's Survey
+    - [x] Major "other" dropdown
+    - [x] Membership history after selecting yes to "previous member?" (semester, 1 year, 2 years 3 years, etc.)
+    - [x] Fix allergies/disabilities options
+        - [x] Add "other" dropdown
+    - [x] How did you hear about us?
+    - [x] Forced renewal of survey (every 4 months)
+- [ ] Custom Profile Pictures
+- [x] Actually working Forget Password
+- [x] Add first and last name to the survey database
 
-low key want the website to look like the langing page for github
 
-### NOTES
 
-authentication
-<https://joyofcode.xyz/sveltekit-authentication-using-cookies>
 
-paypaljs fixes
-<https://www.paypal-community.com/t5/SDKs/onApprove-not-called-workarounds/td-p/3062325>
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
